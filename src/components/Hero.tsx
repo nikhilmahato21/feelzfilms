@@ -1,56 +1,69 @@
 // src/pages/Home.tsx
-import heroImg from "../assets/hero.avif"; 
-
 import { useState } from "react";
-import { Menu, X } from "lucide-react"; // lucide-react icons
-// adjust path as needed
+import { Menu, X } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, EffectFade } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-fade";
+
+import hero1 from "../assets/drive1.jpg"; 
+import hero2 from "../assets/batman.jpg"; 
 
 export const Hero = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const slides = [hero1, hero2]; // Add more images if needed
+
   return (
     <main className="relative min-h-screen bg-[#212121] text-white font-sans overflow-hidden md:rounded-[2rem] border border-white/20 shadow-sm">
-      {/* ===== Background Image ===== */}
-      <img
-        src={heroImg}
-        alt="Hero Background"
-        className="absolute inset-0 w-full h-full object-cover"
-      />
 
-      
-      
-      
-      {/* ===== Navbar ===== */}
-            
-       <nav className="relative z-40 mx-auto mt-6 px-4 sm:px-8 md:px-12 flex items-center justify-between py-3 bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-sm max-w-xs md:max-w-xl lg:max-w-4xl">
-  {/* Logo */}
-  <div className="font-unbounded text-lg font-bold tracking-wide">
-    FEELZFILMS
-  </div>
-
-  {/* Desktop Menu */}
-  <ul className="hidden md:flex items-center md:gap-3 lg:gap-6 text-sm font-medium">
-    <li className="hover:text-gray-200 cursor-pointer">Home</li>
-    <li className="hover:text-gray-200 cursor-pointer">About</li>
-    <li className="hover:text-gray-200 cursor-pointer">Products</li>
-    <li className="hover:text-gray-200 cursor-pointer">Services</li>
-    <li className="hover:text-gray-200 cursor-pointer">Blog</li>
-  </ul>
-
-  {/* Mobile Menu Button */}
-  <button
-    className="md:hidden p-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm"
-    onClick={() => setMenuOpen(!menuOpen)}
+  {/* ===== Background Slider ===== */}
+  <Swiper
+    modules={[Autoplay, EffectFade]}
+    effect="fade"
+    autoplay={{ delay: 4000, disableOnInteraction: false }}
+    loop={true}
+    className="absolute inset-0 w-full h-full object-cover z-0"
   >
-    {menuOpen ? <X size={22} /> : <Menu size={22} />}
-  </button>
-  
-         </nav>
+    {slides.map((slide, index) => (
+      <SwiperSlide key={index}>
+        <img
+          src={slide}
+          alt={`Slide ${index + 1}`}
+          className="w-full h-full object-cover"
+        />
+      </SwiperSlide>
+    ))}
+  </Swiper>
 
+  {/* ===== Navbar ===== */}
+ <nav className="fixed top-3 md:top-10 inset-x-0 mx-auto px-4 sm:px-8 md:px-12 flex items-center justify-between py-1 md:py-3 bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-sm max-w-xs md:max-w-2xl  lg:max-w-4xl z-50">
+    {/* Logo */}
+    <div className="font-unbounded text-lg font-bold tracking-wide">
+      FEELZFILMS
+    </div>
 
-{/* Mobile Dropdown */}
+    {/* Desktop Menu */}
+    <ul className="hidden md:flex items-center md:gap-3 lg:gap-6 text-sm font-medium">
+      <li className="hover:text-gray-200 cursor-pointer">Home</li>
+      <li className="hover:text-gray-200 cursor-pointer">About</li>
+      <li className="hover:text-gray-200 cursor-pointer">Products</li>
+      <li className="hover:text-gray-200 cursor-pointer">Services</li>
+      <li className="hover:text-gray-200 cursor-pointer">Blog</li>
+    </ul>
+
+    {/* Mobile Menu Button */}
+    <button
+      className="md:hidden p-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm"
+      onClick={() => setMenuOpen(!menuOpen)}
+    >
+      {menuOpen ? <X size={22} /> : <Menu size={22} />}
+    </button>
+  </nav>
+
+  {/* Mobile Dropdown */}
   {menuOpen && (
-    <div className="fixed top-[6rem] right-14 z-[99] w-[40%] bg-white/10  backdrop-blur-md   border border-white/20 rounded-2xl p-6 shadow-2xl animate-fadeIn">
+    <div className="fixed top-[4rem] right-14 z-[99] w-[40%] bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 shadow-2xl animate-fadeIn">
       <ul className="flex flex-col gap-5 text-sm font-medium text-center">
         <li className="hover:text-gray-200 cursor-pointer">Home</li>
         <li className="hover:text-gray-200 cursor-pointer">About</li>
@@ -60,45 +73,7 @@ export const Hero = () => {
       </ul>
     </div>
   )}
+</main>
 
-      {/* <section className="relative z-10 flex flex-col justify-end items-start max-w-5xl mx-auto px-6 pt-40 pb-24">
-        <h1 className="text-5xl md:text-6xl font-unbounded font-bold leading-tight mb-6 drop-shadow-lg">
-          Cutting Stories <br /> that breathe visual truth
-        </h1>
-
-        <p className="text-gray-300 max-w-2xl mb-8">
-          Eco-friendly, cost-effective and reliable solar solutions for your
-          home and business. Discover our premium solar products.
-        </p>
-
-        <div className="flex flex-wrap items-center gap-4">
-          <button className="bg-rose-400 hover:bg-rose-300 text-black font-bold px-6 py-3 rounded-full flex items-center gap-2">
-            Explore Services ⚡
-          </button>
-
-          <div className="flex items-center gap-3 bg-white/10 border border-white/20 px-4 py-2 rounded-full backdrop-blur-md">
-            <img
-              src="https://randomuser.me/api/portraits/men/32.jpg"
-              alt="user"
-              className="w-8 h-8 rounded-full border-2 border-white"
-            />
-            <img
-              src="https://randomuser.me/api/portraits/women/44.jpg"
-              alt="user"
-              className="w-8 h-8 rounded-full border-2 border-white -ml-3"
-            />
-            <img
-              src="https://randomuser.me/api/portraits/men/20.jpg"
-              alt="user"
-              className="w-8 h-8 rounded-full border-2 border-white -ml-3"
-            />
-            <span className="text-sm text-gray-300">
-              10K+ Worldwide Viewers ⭐⭐⭐⭐⭐
-            </span>
-          </div>
-        </div>
-      </section> */}
-    </main>
   );
 };
-
