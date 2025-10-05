@@ -17,10 +17,12 @@ export const Hero = () => {
         className="absolute inset-0 w-full h-full object-cover"
       />
 
+      
+      
+      
       {/* ===== Navbar ===== */}
-      {/* ===== Navbar ===== */}
-{/* ===== Navbar ===== */}
-<nav className="relative z-20 mx-auto mt-6 px-4 sm:px-8 md:px-12 flex items-center justify-between py-3 bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-sm max-w-xs md:max-w-xl lg:max-w-4xl">
+            
+       <nav className="relative z-40 mx-auto mt-6 px-4 sm:px-8 md:px-12 flex items-center justify-between py-3 bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-sm max-w-xs md:max-w-xl lg:max-w-4xl">
   {/* Logo */}
   <div className="font-unbounded text-lg font-bold tracking-wide">
     FEELZFILMS
@@ -42,10 +44,13 @@ export const Hero = () => {
   >
     {menuOpen ? <X size={22} /> : <Menu size={22} />}
   </button>
+  
+         </nav>
 
-  {/* Mobile Dropdown */}
+
+{/* Mobile Dropdown */}
   {menuOpen && (
-    <div className="absolute top-[4.5rem] right-4 z-50 w-[80%] bg-white/10 backdrop-blur-3xl border border-white/20 rounded-2xl p-6 shadow-2xl animate-fadeIn">
+    <div className="fixed top-[6rem] right-14 z-[99] w-[40%] bg-white/10  backdrop-blur-md   border border-white/20 rounded-2xl p-6 shadow-2xl animate-fadeIn">
       <ul className="flex flex-col gap-5 text-sm font-medium text-center">
         <li className="hover:text-gray-200 cursor-pointer">Home</li>
         <li className="hover:text-gray-200 cursor-pointer">About</li>
@@ -55,12 +60,8 @@ export const Hero = () => {
       </ul>
     </div>
   )}
-</nav>
 
-
-
-      {/* ===== Hero Section ===== */}
-      <section className="relative z-10 flex flex-col justify-end items-start max-w-5xl mx-auto px-6 pt-40 pb-24">
+      {/* <section className="relative z-10 flex flex-col justify-end items-start max-w-5xl mx-auto px-6 pt-40 pb-24">
         <h1 className="text-5xl md:text-6xl font-unbounded font-bold leading-tight mb-6 drop-shadow-lg">
           Cutting Stories <br /> that breathe visual truth
         </h1>
@@ -96,7 +97,7 @@ export const Hero = () => {
             </span>
           </div>
         </div>
-      </section>
+      </section> */}
     </main>
   );
 };
