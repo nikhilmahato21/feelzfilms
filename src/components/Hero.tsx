@@ -20,14 +20,14 @@ export const Hero = () => {
       {/* ===== Navbar ===== */}
       {/* ===== Navbar ===== */}
 {/* ===== Navbar ===== */}
-<nav className="relative z-20 mx-auto mt-6 px-4 sm:px-8 md:px-12 flex items-center justify-between py-3 bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-sm max-w-xs md:max-w-3xl lg:max-w-4xl">
+<nav className="relative z-20 mx-auto mt-6 px-4 sm:px-8 md:px-12 flex items-center justify-between py-3 bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-sm max-w-xs md:max-w-xl lg:max-w-4xl">
   {/* Logo */}
   <div className="font-unbounded text-lg font-bold tracking-wide">
     FEELZFILMS
   </div>
 
   {/* Desktop Menu */}
-  <ul className="hidden md:flex items-center gap-6 text-sm font-medium">
+  <ul className="hidden md:flex items-center md:gap-3 lg:gap-6 text-sm font-medium">
     <li className="hover:text-gray-200 cursor-pointer">Home</li>
     <li className="hover:text-gray-200 cursor-pointer">About</li>
     <li className="hover:text-gray-200 cursor-pointer">Products</li>
