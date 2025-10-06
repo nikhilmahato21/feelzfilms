@@ -8,6 +8,7 @@ import hero1 from "../assets/drive1.jpg";
 import hero2 from "../assets/batman.jpg"; 
 import left from "../assets/left.png"; 
 import right from "../assets/right.png"; 
+import phone from "../assets/phone.png"; 
 
 export const Slider = () => {
   const slides = [
@@ -15,14 +16,14 @@ export const Slider = () => {
       image: hero1,
       title: "Apollo 11",
       subtitle: "One small step for man, one giant leap for mankind.",
-      date: "July 20, 1969",
+      date: "Jul 20, 1969",
       logo: "NASA",
     },
     {
       image: hero2,
       title: "Exploring Beyond",
       subtitle: "The future belongs to those who dare to dream.",
-      date: "August 14, 1975",
+      date: "Aug 14, 1975",
       logo: "NASA",
     },
   ];
@@ -51,33 +52,50 @@ export const Slider = () => {
               />
 
               {/* Top Labels (Logo + Date) */}
-              <div className="absolute top-5 left-6 right-6 flex justify-between text-white text-sm font-medium">
+              {/* <div className="absolute top-5 left-6 right-6 flex justify-between text-white text-xs md:text-sm font-medium">
                 <span className="opacity-90">{slide.logo}</span>
                 <span className="opacity-80">{slide.date}</span>
-              </div>
+              </div> */}
 
              
 {/* Bottom Text with Smooth Gradient Blur */}
 <div className="absolute bottom-0 left-0 right-0">
   {/* Layer 1: Dark fade from bottom */}
-  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/90 to-transparent  " />
+  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/90 to-transparent" />
 
   {/* Text content */}
-  <div className="relative px-6 md:px-10 py-8 md:py-12 ">
-    <h1 className="text-2xl md:text-4xl font-semibold font-unbounded  text-white drop-shadow-lg">
+  <div className="relative px-6 md:px-10 py-2 md:py-12">
+    <h1 className="text-2xl md:text-4xl font-semibold font-unbounded text-white drop-shadow-lg">
       {slide.title}
     </h1>
-    <p className="mt-2 text-sm  md:text-lg font-sans text-white/80 max-w-xl">
+    <p className="mt-2 text-sm md:text-lg font-sans text-white/80 max-w-xl">
       {slide.subtitle}
     </p>
-    <button className="mt-4 px-4 py-2 text-sm font-medium font-unbounded text-white rounded-full 
-    bg-red-500/20 backdrop-blur-md border border-red-300/30 
-    hover:bg-red-500/40 transition">
-  Book a Call
-</button>
+
+    {/* Buttons */}
+    <div className="mt-2 md:mt-4 flex gap-4 flex-wrap justify-start">
+  {/* Our Services - red button */}
+  <button className="px-3 py-2 sm:px-6 sm:py-4 min-w-[70px] sm:min-w-[160px] text-xs sm:text-base font-medium font-unbounded text-white rounded-full 
+    bg-red-500/20 backdrop-blur-md border border-red-300/30 hover:bg-red-500/40 transition">
+    Our Services
+  </button>
+
+  {/* Book a Call - white button, double width */}
+  <button className="relative px-3 py-2 sm:px-8 sm:py-4 min-w-[150px] sm:min-w-[320px] text-xs sm:text-base font-medium font-unbounded text-white rounded-full 
+    bg-white/20 backdrop-blur-lg border border-white/30 shadow-inner hover:bg-white/30 transition flex items-center justify-center gap-2">
+    
+    <img src={phone} alt="icon" className="w-5 h-5 sm:w-6 sm:h-6" />
+    <span>Book a Call</span>
+
+    {/* Optional subtle inner glow */}
+    <span className="absolute inset-0 rounded-full shadow-[inset_0_0_10px_rgba(255,255,255,0.3)] pointer-events-none"></span>
+  </button>
+</div>
 
   </div>
 </div>
+
+
 
             </div>
           </SwiperSlide>
