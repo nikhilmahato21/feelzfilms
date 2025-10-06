@@ -8,7 +8,7 @@ export const Hero = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <main className="relative  bg-[#212121] text-white font-sans overflow-hidden rounded-[2rem] border border-white/20 shadow-sm">
+    <main className="relative  bg-[#212121] text-white font-sans overflow-hidden rounded-[2rem] border border-white/20 shadow-sm ">
 
   {/* ===== Background Slider ===== */}
      <Slider/>

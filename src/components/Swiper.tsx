@@ -81,15 +81,19 @@ export const Slider = () => {
   </button>
 
   {/* Book a Call - white button, double width */}
-  <button className="relative px-3 py-2 sm:px-8 sm:py-4 min-w-[150px] sm:min-w-[320px] text-xs sm:text-base font-medium font-unbounded text-white rounded-full 
-    bg-white/20 backdrop-blur-lg border border-white/30 shadow-inner hover:bg-white/30 transition flex items-center justify-center gap-2">
-    
-    <img src={phone} alt="icon" className="w-5 h-5 sm:w-6 sm:h-6" />
-    <span>Book a Call</span>
+  {/* Book a Call - white button, double width */}
+<button className="relative px-3 py-2 sm:px-8 sm:py-4 min-w-[150px] sm:min-w-[320px] text-xs sm:text-base font-medium font-unbounded text-white rounded-full bg-white/20 backdrop-blur-lg border border-white/30 shadow-inner hover:bg-white/30 transition flex items-center justify-center gap-2">
+  {/* Green pulsing dot */}
+  <span className="relative flex items-center justify-center">
+    <span className="w-3 h-3 bg-green-400 rounded-full"></span>
+    <span className="absolute w-3 h-3 bg-green-400 rounded-full animate-ping opacity-75"></span>
+  </span>
+  <span>Book a Call</span>
 
-    {/* Optional subtle inner glow */}
-    <span className="absolute inset-0 rounded-full shadow-[inset_0_0_10px_rgba(255,255,255,0.3)] pointer-events-none"></span>
-  </button>
+  {/* Optional subtle inner glow */}
+  <span className="absolute inset-0 rounded-full shadow-[inset_0_0_10px_rgba(255,255,255,0.3)] pointer-events-none"></span>
+</button>
+
 </div>
 
   </div>
