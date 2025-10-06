@@ -13,13 +13,17 @@ export const Slider = () => {
   const slides = [
     {
       image: hero1,
-      title: "Unleash Your Inner Hero",
-      subtitle: "Feel the power of storytelling through film.",
+      title: "Apollo 11",
+      subtitle: "One small step for man, one giant leap for mankind.",
+      date: "July 20, 1969",
+      logo: "NASA",
     },
     {
       image: hero2,
-      title: "Every Frame Tells a Story",
-      subtitle: "Crafted with passion and precision.",
+      title: "Exploring Beyond",
+      subtitle: "The future belongs to those who dare to dream.",
+      date: "August 14, 1975",
+      logo: "NASA",
     },
   ];
 
@@ -34,7 +38,7 @@ export const Slider = () => {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         }}
-        className="absolute inset-0 w-full h-full z-0"
+        className="absolute inset-0 w-full h-full z-0 rounded-[1.5rem] overflow-hidden"
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
@@ -46,15 +50,35 @@ export const Slider = () => {
                 className="w-full h-full object-cover"
               />
 
-              {/* Text Overlay */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
-                <h1 className="text-4xl md:text-6xl font-bold drop-shadow-lg">
-                  {slide.title}
-                </h1>
-                <p className="mt-3 text-lg md:text-xl opacity-80 drop-shadow-md">
-                  {slide.subtitle}
-                </p>
+              {/* Top Labels (Logo + Date) */}
+              <div className="absolute top-5 left-6 right-6 flex justify-between text-white text-sm font-medium">
+                <span className="opacity-90">{slide.logo}</span>
+                <span className="opacity-80">{slide.date}</span>
               </div>
+
+             
+{/* Bottom Text with Smooth Gradient Blur */}
+<div className="absolute bottom-0 left-0 right-0">
+  {/* Layer 1: Dark fade from bottom */}
+  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/90 to-transparent  " />
+
+  {/* Text content */}
+  <div className="relative px-6 md:px-10 py-8 md:py-12 ">
+    <h1 className="text-2xl md:text-4xl font-semibold font-unbounded  text-white drop-shadow-lg">
+      {slide.title}
+    </h1>
+    <p className="mt-2 text-sm  md:text-lg font-sans text-white/80 max-w-xl">
+      {slide.subtitle}
+    </p>
+    <button className="mt-4 px-4 py-2 text-sm font-medium font-unbounded text-white rounded-full 
+    bg-red-500/20 backdrop-blur-md border border-red-300/30 
+    hover:bg-red-500/40 transition">
+  Book a Call
+</button>
+
+  </div>
+</div>
+
             </div>
           </SwiperSlide>
         ))}
