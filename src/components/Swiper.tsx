@@ -8,7 +8,7 @@ import hero1 from "../assets/drive1.jpg";
 import hero2 from "../assets/batman.jpg"; 
 import left from "../assets/left.png"; 
 import right from "../assets/right.png"; 
-import phone from "../assets/phone.png"; 
+
 
 export const Slider = () => {
   const slides = [
