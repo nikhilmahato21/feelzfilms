@@ -1,8 +1,8 @@
-import React from "react";
+
 
 const VideoEditingSection = () => {
   return (
-    <section className="min-h-screen w-full bg-[url('https://images.unsplash.com/photo-1579109652910-99b9be06aaec?q=80&w=987&auto=format&fit=crop')] bg-cover bg-center flex flex-col items-center justify-center px-4 py-16 backdrop-blur-md rounded-4xl overflow-hidden">
+    <section className="min-h-screen w-full bg-[url('https://images.unsplash.com/photo-1579109652910-99b9be06aaec?q=80&w=987&auto=format&fit=crop')] bg-cover bg-center flex flex-col items-center justify-center px-4 py-10 backdrop-blur-md rounded-4xl overflow-hidden">
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/50 backdrop-blur-xl -z-10 " />
 
