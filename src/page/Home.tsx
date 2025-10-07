@@ -1,4 +1,5 @@
 import { Hero } from "../components/Hero"
+import VideoEditingSection from "../components/VideoEditingSection"
 
 
 export const Home = () => {
@@ -8,6 +9,7 @@ export const Home = () => {
       <div className=" md:max-w-[100rem] mx-auto px-2 md:px-6 py-2 md:py-8  space-y-10 md:space-y-20">
         {/* ====== Components go here ====== */}
         <Hero />
+        <VideoEditingSection/>
         {/* <About /> */}
         {/* <Services /> */}
         {/* <Contact /> */}
