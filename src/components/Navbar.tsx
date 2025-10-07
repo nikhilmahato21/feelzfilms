@@ -20,7 +20,7 @@ export const Navbar: React.FC<NavbarProps> = ({ menuOpen, setMenuOpen }) => {
 
       {/* Mobile Menu Button */}
       <button
-        className="md:hidden p-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm"
+        className="md:hidden p-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm transition-all duration-300"
         onClick={() => setMenuOpen(!menuOpen)}
       >
         {menuOpen ? <X size={15} /> : <Menu size={15} />}
