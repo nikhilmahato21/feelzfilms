@@ -2,7 +2,7 @@ import { FaFilm, FaBookOpen, FaTools } from "react-icons/fa";
 
 export const VisionSection = () => {
   return (
-    <section className="min-h-screen w-full bg-[url('https://images.unsplash.com/photo-1579109652910-99b9be06aaec?q=80&w=987&auto=format&fit=crop')] rounded-3xl bg-cover bg-center flex items-center justify-center px-3 py-8">
+    <section className="min-h-screen w-full bg-[url('https://images.unsplash.com/photo-1638376776402-9a4b75fe21bb?q=80&w=1577&auto=format&fit=crop')] rounded-3xl bg-cover bg-center flex items-center justify-center px-3 py-8">
       <div className="max-w-7xl w-full h-full flex flex-col md:flex-row items-center justify-between gap-10 bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl shadow-2xl p-8 md:p-20">
         
         {/* Left Content */}
