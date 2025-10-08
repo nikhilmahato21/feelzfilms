@@ -3,7 +3,11 @@ import VideoEditingSection from "../components/VideoEditingSection"
 import { VisionSection } from "../components/VisionSection"
 
 
+
+
+
 export const Home = () => {
+  
   return (
     <main className=" bg-black text-white font-sans  ">
       

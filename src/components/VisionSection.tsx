@@ -1,6 +1,33 @@
 import { FaFilm, FaBookOpen, FaTools } from "react-icons/fa";
+import { motion, animate } from "motion/react";
+import { useEffect, useState } from "react";
+
 
 export const VisionSection = () => {
+  const [views, setViews] = useState(0);
+  const [works, setWorks] = useState(0);
+
+  useEffect(() => {
+    const controls1 = animate(0, 120, {
+      duration: 3,
+      onUpdate(value) {
+        setViews(Math.floor(value));
+      },
+    });
+
+    const controls2 = animate(0, 500, {
+      duration: 3,
+      onUpdate(value) {
+        setWorks(Math.floor(value));
+      },
+    });
+
+    return () => {
+      controls1.stop();
+      controls2.stop();
+    };
+  }, []);
+
   return (
   <section className=" relative lg:min-h-screen w-full bg-[url('https://images.unsplash.com/photo-1638376776402-9a4b75fe21bb?q=80&w=1577&auto=format&fit=crop')] rounded-3xl bg-cover bg-center backdrop-blur-md flex items-center justify-center px-3 py-8 mt-3 lg:mt-0">
     <div className="absolute inset-0 bg-black/50 backdrop-blur-xl -z-10  rounded-3xl" />
@@ -35,14 +62,21 @@ At Feelz Films, creativity meets strategy — turning every idea into a brand th
             </div>
           </div>
 
-          <div className="flex gap-4 pt-4">
-            <button className="px-6 py-3 rounded-full bg-white/20 border border-white/30 hover:bg-white/30 transition backdrop-blur-md">
-              Explore
-            </button>
-            <button className="px-6 py-3 rounded-full border border-white/30 hover:bg-white/30 transition backdrop-blur-md flex items-center gap-2">
-              Connect <span className="text-xl">→</span>
-            </button>
-          </div>
+          <div className="flex gap-10 pt-6">
+        <div className="flex flex-col items-center">
+          <motion.span className="text-4xl font-bold text-white">
+            {views.toLocaleString("en-IN")} M
+          </motion.span>
+          <span className="text-md font-unbounded text-gray-300">Total Views</span>
+        </div>
+
+        <div className="flex flex-col items-center">
+          <motion.span className="text-4xl font-bold text-white">
+            {works.toLocaleString("en-IN")} +
+          </motion.span>
+          <span className="text-md font-unbounded text-gray-300">Total Works</span>
+        </div>
+      </div>
         </div>
 
         {/* Right Image */}
