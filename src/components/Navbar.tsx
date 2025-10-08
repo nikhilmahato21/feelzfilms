@@ -12,7 +12,7 @@ export const Navbar: React.FC<NavbarProps> = ({ menuOpen, setMenuOpen }) => {
 
       {/* Logo */}
       <div className="font-unbounded text-sm md:text-lg font-bold tracking-wide">
-        FEELZFILMS
+        FEELZ FILMS
       </div>
 
       {/* Desktop Menu */}
@@ -20,10 +20,10 @@ export const Navbar: React.FC<NavbarProps> = ({ menuOpen, setMenuOpen }) => {
 
       {/* Mobile Menu Button */}
       <button
-        className="md:hidden p-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm transition-all duration-300"
+        className="lg:hidden p-2  rounded-full bg-white/10 border border-white/20 backdrop-blur-sm transition-all duration-300"
         onClick={() => setMenuOpen(!menuOpen)}
       >
-        {menuOpen ? <X size={15} /> : <Menu size={15} />}
+        {menuOpen ? <X size={20} /> : <Menu size={20} />}
       </button>
     </nav>
   );
