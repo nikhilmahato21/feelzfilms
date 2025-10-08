@@ -1,5 +1,5 @@
 import { FaFilm, FaBookOpen, FaTools } from "react-icons/fa";
-import { motion, animate,AnimatePresence  } from "motion/react";
+import { motion, animate  } from "motion/react";
 import { useEffect, useState } from "react";
 
 
@@ -115,10 +115,22 @@ export const VisionSection = () => {
         <div className="relative w-full md:w-1/3 mx-auto flex flex-col items-center overflow-hidden">
       {/* Image Container */}
       <motion.div
-        className="flex w-full"
-        animate={{ x: `-${current * 100}%` }}
-        transition={{ type: "tween", duration: 0.7 }}
-      >
+  className="flex w-full"
+  animate={{ x: `-${current * 100}%` }}
+  transition={{ type: "tween", duration: 0.7 }}
+  drag="x"
+  dragConstraints={{ left: 0, right: 0 }}
+  dragElastic={0.2}
+  onDragEnd={(event, info) => {
+    if (info.offset.x < -50) {
+      // Swiped left → next image
+      setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    } else if (info.offset.x > 50) {
+      // Swiped right → previous image
+      setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+    }
+  }}
+>
         {images.map((src, index) => (
           <div
             key={index}
@@ -135,24 +147,23 @@ export const VisionSection = () => {
 
       {/* Dot Indicators */}
       <div className="flex justify-center mt-4 gap-3 w-full px-4">
-        {images.map((_, index) => (
-          <div key={index} className="flex items-center justify-center">
-            {current === index ? (
-              // Active: horizontal line with animation
-              <div className="w-6 border border-white/10 rounded-full"><motion.div
-                className="h-2 bg-white rounded-full"
-                initial={{ width: 0 }}
-                animate={{ width: 24 }} // 24px wide
-                transition={{ duration: 4, ease: "linear" }}
-              /></div>
-              
-            ) : (
-              // Inactive: small dot
-              <div className="w-2 h-2 rounded-full bg-white/40" />
-            )}
-          </div>
-        ))}
-      </div>
+  {images.map((_, index) => (
+    <div key={index} className="flex items-center justify-center cursor-pointer" onClick={() => setCurrent(index)}>
+      {current === index ? (
+        <div className="w-6 border border-white/10 rounded-full">
+          <motion.div
+            className="h-2 bg-white rounded-full"
+            initial={{ width: 0 }}
+            animate={{ width: 24 }}
+            transition={{ duration: 4, ease: "linear" }}
+          />
+        </div>
+      ) : (
+        <div className="w-2 h-2 rounded-full bg-white/40" />
+      )}
+    </div>
+  ))}
+</div>
     </div>
 
       </div>
