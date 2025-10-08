@@ -121,7 +121,7 @@ export const VisionSection = () => {
   drag="x"
   dragConstraints={{ left: 0, right: 0 }}
   dragElastic={0.2}
-  onDragEnd={(event, info) => {
+  onDragEnd={(_event, info) => {
     if (info.offset.x < -50) {
       // Swiped left → next image
       setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
