@@ -40,3 +40,12 @@
   animation: scaleIn 0.2s ease-out forwards;
   transform-origin: top right;
 }
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.scrollbar-hide {
+  scrollbar-width: none;
+}

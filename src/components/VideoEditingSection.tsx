@@ -85,7 +85,7 @@ const VideoEditingSection = () => {
         {cards.map((card) => (
           <div
             key={card.id}
-            className="snap-start flex-shrink-0 w-[95%] sm:w-[75%] md:w-[60%] lg:w-[50%] xl:w-[45%] bg-white/10 border border-white/20 backdrop-blur-xl rounded-3xl shadow-lg overflow-hidden hover:bg-white/20 transition-all duration-300"
+            className="snap-start flex-shrink-0 w-[90%] sm:w-[70%] md:w-[45%] lg:w-[35%] xl:w-[32%] bg-white/10 border border-white/20 backdrop-blur-xl rounded-3xl shadow-lg overflow-hidden hover:bg-white/20 transition-all duration-300"
           >
             <img
               src={card.image}

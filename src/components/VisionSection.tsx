@@ -49,7 +49,7 @@ At Feelz Films, creativity meets strategy — turning every idea into a brand th
         <div className="relative w-full md:w-1/3 flex justify-center mx-auto">
   <div className="rounded-2xl overflow-hidden shadow-lg border border-white/30 bg-white/10 backdrop-blur-lg">
     <img
-      src="https://images.unsplash.com/photo-1576267345152-5e8d10f75cb4?q=80&w=2070&auto=format&fit=crop"
+      src="https://images.unsplash.com/photo-1512403754473-27835f7b9984?q=80&w=1015&auto=format&fit=crop"
       alt="Story collaboration"
       className="w-full h-full object-cover"
     />
