@@ -132,7 +132,7 @@ const VideoEditingSection = () => {
       </div>
 
       {/* Carousel */}
-      <div className="w-full overflow-x-auto scrollbar-hide snap-x snap-mandatory flex gap-6 px-4 scroll-smooth">
+      <div className="w-full ml-3 overflow-x-auto scrollbar-hide snap-x snap-mandatory flex gap-6 px-4 scroll-smooth">
         {cards.map((card) => (
           <div
             key={card.id}
