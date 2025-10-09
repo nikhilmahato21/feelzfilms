@@ -10,7 +10,7 @@ const testimonials = [
     name: "Robin Noguier",
     role: "Senior Interactive Designer",
     image: "https://randomuser.me/api/portraits/men/11.jpg",
-    text: "Piqo Studio is a great icon designer. They are fast, reliable, easy to work with, and always keen to find the best concept possible for any icon. I hope to keep working with them in the future!",
+    text: "Piqo Studio is a great icon designer. They are fast, reliable, easy to work with, and always keen to find the best concept possible for any icon. ",
   },
   {
     id: 2,
@@ -45,7 +45,7 @@ export default function TestimonialSection() {
 
   return (
     <section
-      className="relative overflow-hidden rounded-3xl py-12 px-6 md:py-20 md:px-16 text-white"
+      className="relative overflow-hidden   rounded-3xl py-12  md:py-20  text-white"
       style={{
         backgroundImage:
           "url('https://images.unsplash.com/photo-1638376776402-9a4b75fe21bb?q=80&w=1577&auto=format&fit=crop')",
@@ -57,7 +57,7 @@ export default function TestimonialSection() {
       <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
 
       {/* Content wrapper */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full flex flex-col md:flex-row items-start md:items-center gap-8">
+      <div className="relative  px-5 z-10 max-w-7xl mx-auto w-full flex flex-col md:flex-row items-start md:items-center gap-8">
         {/* LEFT: heading + arrows */}
         <div className="w-full md:w-1/2 flex flex-col justify-center">
           <div>
@@ -98,7 +98,7 @@ export default function TestimonialSection() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -50 }}
                 transition={{ duration: 0.45, ease: "easeInOut" }}
-                className="w-full h-72 bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl shadow-2xl p-6 py-15 md:p-8 md:py-20 text-gray-100"
+                className="w-full bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl shadow-2xl p-6 py-15 md:p-8 md:py-20 text-gray-100"
               >
                 <div className="flex items-start gap-4">
                   <img
@@ -126,7 +126,7 @@ export default function TestimonialSection() {
       </div>
 
       {/* Optional logos row (keeps responsive) */}
-      <div className="relative z-10 w-full flex flex-col overflow-hidden gap-0 mt-16">
+      <div className="relative   z-10 w-full flex flex-col overflow-hidden gap-0 mt-16">
           <div className="pointer-events-none absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-black to-transparent z-20" />
           <div className="pointer-events-none absolute right-0 top-0 h-full w-32   bg-gradient-to-l from-black to-transparent z-20" />
         <div className="flex whitespace-nowrap animate-marquee">

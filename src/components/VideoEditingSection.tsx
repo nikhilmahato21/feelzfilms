@@ -123,7 +123,7 @@ const VideoEditingSection = () => {
         <p className="uppercase tracking-wide text-gray-200/80 mb-2 text-sm font-medium">
           Craft
         </p>
-        <h1 className="text-4xl md:text-5xl font-extrabold font-unbounded text-white mb-3 drop-shadow-lg">
+        <h1 className="text-4xl md:text-5xl mx-5 font-extrabold font-unbounded text-white mb-3 drop-shadow-lg">
           Video Editing That Moves
         </h1>
         <p className="text-gray-300 text-lg font-sans">
