@@ -69,8 +69,8 @@ export const VisionSection = () => {
           <p className="text-base  text-gray-200 font-sans max-w-2xl">
            Feelz Films Production House Pvt. Ltd. is one of India’s leading content agencies, delivering powerful strategies and high-quality video production and editing services.
 
-  We help brands, creators, and entrepreneurs build their personal and digital presence through storytelling that inspires and connects.
-   At Feelz Films, creativity meets strategy — turning every idea into a brand that stands out.
+      We help brands, creators, and entrepreneurs build their personal and digital presence through storytelling that inspires and connects.
+       At Feelz Films, creativity meets strategy — turning every idea into a brand that stands out.
           </p>
 
           <div className="space-y-3">

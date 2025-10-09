@@ -49,3 +49,30 @@
 .scrollbar-hide {
   scrollbar-width: none;
 }
+
+@keyframes marquee {
+          0% { transform: translateX(0%); }
+          100% { transform: translateX(-50%); }
+        }
+@keyframes marquee-left {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+        .animate-marquee {
+          display: inline-flex;
+          animation: marquee 20s linear infinite;
+        }
+        .animate-marquee-left {
+          display: inline-flex;
+          animation: marquee-left 20s linear infinite;
+        }
+
+        @media (max-width: 640px) {
+  .animate-marquee {
+    animation-duration: 5s; /* slower animation for mobile */
+  }
+
+  .animate-marquee-left {
+    animation-duration: 5s;
+  }
+}

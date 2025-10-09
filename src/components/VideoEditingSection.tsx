@@ -1,5 +1,6 @@
 import { Film, Scissors, Camera, PlayCircle, Sparkles, Clapperboard, Video, Star, Workflow } from "lucide-react";
 
+
 const VideoEditingSection = () => {
   const cards = [
     {
@@ -171,6 +172,38 @@ const VideoEditingSection = () => {
           </div>
         ))}
       </div>
+
+      <div className="relative w-full flex flex-col overflow-hidden gap-5 mt-16">
+  <div className="flex whitespace-nowrap animate-marquee">
+    {[...cards, ...cards].map((card, idx) => (
+      <div
+        key={idx}
+        className="flex items-center gap-2 sm:gap-3 bg-white/10 border border-white/20 rounded-full 
+        px-3 py-2 sm:px-5 sm:py-2 mx-2 sm:mx-3 
+        text-xs sm:text-sm font-medium text-white/80 backdrop-blur-md"
+      >
+        {card.icon}
+        <span>{card.title}</span>
+      </div>
+    ))}
+  </div>
+  <div className="flex whitespace-nowrap animate-marquee-left">
+    {[...cards, ...cards].map((card, idx) => (
+      <div
+        key={idx}
+        className="flex items-center gap-2 sm:gap-3 bg-white/10 border border-white/20 rounded-full 
+        px-3 py-2 sm:px-5 sm:py-2 mx-2 sm:mx-3 
+        text-xs sm:text-sm font-medium text-white/80 backdrop-blur-md"
+      >
+        {card.icon}
+        <span>{card.title}</span>
+      </div>
+    ))}
+  </div>
+</div>
+
+
+     
     </section>
   );
 };
