@@ -132,7 +132,7 @@ const VideoEditingSection = () => {
       </div>
 
       {/* Carousel */}
-      <div className="w-full ml-5 overflow-x-auto scrollbar-hide snap-x snap-mandatory flex gap-6 px-4 scroll-smooth">
+      <div className="w-full ml-5 overflow-x-auto scrollbar-hide snap-x snap-mandatory flex gap-6 px-4 scroll-smooth ">
         {cards.map((card) => (
           <div
             key={card.id}
@@ -173,7 +173,13 @@ const VideoEditingSection = () => {
         ))}
       </div>
 
-      <div className="relative w-full flex flex-col overflow-hidden gap-5 mt-16">
+      <div className="relative w-full flex flex-col overflow-hidden gap-5 mt-16 py-10">
+  {/* LEFT FADE */}
+  <div className="pointer-events-none absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-black to-transparent z-20" />
+  {/* RIGHT FADE */}
+  {/* <div className="pointer-events-none absolute right-0 top-0 h-full w-32   bg-gradient-to-l from-black/40 to-transparent z-20" /> */}
+
+  {/* FIRST MARQUEE */}
   <div className="flex whitespace-nowrap animate-marquee">
     {[...cards, ...cards].map((card, idx) => (
       <div
@@ -187,6 +193,8 @@ const VideoEditingSection = () => {
       </div>
     ))}
   </div>
+
+  {/* SECOND MARQUEE */}
   <div className="flex whitespace-nowrap animate-marquee-left">
     {[...cards, ...cards].map((card, idx) => (
       <div
@@ -201,6 +209,7 @@ const VideoEditingSection = () => {
     ))}
   </div>
 </div>
+
 
 
      

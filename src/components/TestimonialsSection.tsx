@@ -54,7 +54,7 @@ export default function TestimonialSection() {
       }}
     >
       {/* Black overlay + blur */}
-      <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
 
       {/* Content wrapper */}
       <div className="relative z-10 max-w-7xl mx-auto w-full flex flex-col md:flex-row items-start md:items-center gap-8">
@@ -64,7 +64,7 @@ export default function TestimonialSection() {
             <p className="text-sm md:text-sm uppercase tracking-widest text-gray-300 mb-2">
               Clients
             </p>
-            <h2 className="text-2xl md:text-5xl font-bold leading-tight text-white">
+            <h2 className="text-2xl md:text-5xl font-bold leading-tight font-unbounded text-white">
               What people say <br /> about us?
             </h2>
           </div>
@@ -107,16 +107,16 @@ export default function TestimonialSection() {
                     className="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover border border-white/30 flex-shrink-0"
                   />
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-base md:text-xl font-semibold text-white truncate">
+                    <h3 className="text-base md:text-xl font-unbounded font-semibold text-white truncate">
                       {testimonials[index].name}
                     </h3>
-                    <p className="text-xs md:text-sm text-gray-300">
+                    <p className="text-xs md:text-sm font-sans text-gray-300">
                       {testimonials[index].role}
                     </p>
                   </div>
                 </div>
 
-                <p className="mt-4 text-sm md:text-base text-gray-200 leading-relaxed">
+                <p className="mt-4 text-sm md:text-base font-sans text-gray-200 leading-relaxed">
                   {testimonials[index].text}
                 </p>
               </motion.div>
@@ -127,6 +127,8 @@ export default function TestimonialSection() {
 
       {/* Optional logos row (keeps responsive) */}
       <div className="relative z-10 w-full flex flex-col overflow-hidden gap-0 mt-16">
+          <div className="pointer-events-none absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-black to-transparent z-20" />
+          <div className="pointer-events-none absolute right-0 top-0 h-full w-32   bg-gradient-to-l from-black to-transparent z-20" />
         <div className="flex whitespace-nowrap animate-marquee">
           {[...logos, ...logos].map((logo, idx) => (
             <div
