@@ -43,10 +43,10 @@ export const VisionSection = () => {
   }, []);
 
   // Animation variants
-  const fadeUp: Variants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
-  };
+  // const fadeUp: Variants = {
+  //   hidden: { opacity: 0, y: 50 },
+  //   visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
+  // };
   const fadeLeft: Variants = { hidden: { opacity: 0, x: -50 }, visible: { opacity: 1, x: 0, transition: { duration: 0.8 } } };
   const fadeRight: Variants = { hidden: { opacity: 0, x: 50 }, visible: { opacity: 1, x: 0, transition: { duration: 0.8 } } };
 
@@ -58,11 +58,11 @@ export const VisionSection = () => {
     >
       <div className="absolute inset-0 bg-black/50 backdrop-blur-xl -z-10 rounded-3xl" />
 
-      <motion.div
+      <div
         className="max-w-7xl w-full h-full flex flex-col md:flex-row items-center justify-between gap-10 bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl shadow-2xl p-8 md:p-20"
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
-        variants={fadeUp}
+        // initial="hidden"
+        // animate={inView ? "visible" : "hidden"}
+        // variants={fadeUp}
       >
         {/* Left Content */}
         <motion.div className="text-white space-y-6 md:w-2/3" variants={fadeLeft}>
@@ -140,7 +140,7 @@ export const VisionSection = () => {
             ))}
           </div>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 };

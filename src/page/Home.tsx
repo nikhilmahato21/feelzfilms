@@ -48,18 +48,18 @@ export const Home = () => {
           <VisionSection />
         
 
-        <AnimatedSection>
+        
           <VideoEditingSection />
           
-        </AnimatedSection>
+        
 
-        <AnimatedSection>
+        
           <Portfolio />
-        </AnimatedSection>
+        
 
-        <AnimatedSection>
+        
           <TestimonialsSection />
-        </AnimatedSection>
+        
 
         <Footer />
       </div>
