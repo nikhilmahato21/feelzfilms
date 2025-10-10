@@ -45,13 +45,11 @@ export const Home = () => {
         
           <Hero />
         
-
-        <AnimatedSection>
           <VisionSection />
-        </AnimatedSection>
+        
 
         <AnimatedSection>
-          <div><VideoEditingSection /></div>
+          <VideoEditingSection />
           
         </AnimatedSection>
 
