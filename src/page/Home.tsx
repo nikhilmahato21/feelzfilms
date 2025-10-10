@@ -1,6 +1,6 @@
-"use client";
-import { motion, useInView, type Variants } from "motion/react";
-import { useRef } from "react";
+// "use client";
+// import { motion, useInView, type Variants } from "motion/react";
+// import { useRef } from "react";
 
 import Footer from "../components/Footer";
 import { Hero } from "../components/Hero";
@@ -12,14 +12,14 @@ import VideoEditingSection from "../components/VideoEditingSection";
 
 export const Home = () => {
   // Animation variants
-  const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 60 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.3, ease: "easeOut" },
-  },
-};
+//   const fadeUp: Variants = {
+//   hidden: { opacity: 0, y: 60 },
+//   visible: {
+//     opacity: 1,
+//     y: 0,
+//     transition: { duration: 0.3, ease: "easeOut" },
+//   },
+// };
 
   // Helper component for scroll animation
   // const AnimatedSection = ({ children }: { children: React.ReactNode }) => {
