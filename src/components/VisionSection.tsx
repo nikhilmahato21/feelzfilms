@@ -56,7 +56,7 @@ export const VisionSection = () => {
   }, []);
 
   return (
-  <section className=" relative lg:min-h-screen w-full bg-[url('https://images.unsplash.com/photo-1638376776402-9a4b75fe21bb?q=80&w=1577&auto=format&fit=crop')] rounded-3xl bg-cover bg-center backdrop-blur-md flex items-center justify-center px-3 py-8 mt-3 lg:mt-0">
+  <section id="about" className=" relative lg:min-h-screen w-full bg-[url('https://images.unsplash.com/photo-1638376776402-9a4b75fe21bb?q=80&w=1577&auto=format&fit=crop')] rounded-3xl bg-cover bg-center backdrop-blur-md flex items-center justify-center px-3 py-8 mt-3 lg:mt-0">
     <div className="absolute inset-0 bg-black/50 backdrop-blur-xl -z-10  rounded-3xl" />
       <div className="max-w-7xl  w-full h-full flex flex-col md:flex-row items-center justify-between gap-10 bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl shadow-2xl p-8 md:p-20">
         

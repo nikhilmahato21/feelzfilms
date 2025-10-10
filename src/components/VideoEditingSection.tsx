@@ -114,7 +114,7 @@ const VideoEditingSection = () => {
   ];
 
   return (
-    <section className="relative  lg:min-h-screen w-full bg-[url('https://images.unsplash.com/photo-1638376776402-9a4b75fe21bb?q=80&w=1577&auto=format&fit=crop')] bg-cover bg-center backdrop-blur-md flex flex-col items-center justify-center py-10 rounded-4xl overflow-hidden">
+    <section id="services" className="relative  lg:min-h-screen w-full bg-[url('https://images.unsplash.com/photo-1638376776402-9a4b75fe21bb?q=80&w=1577&auto=format&fit=crop')] bg-cover bg-center backdrop-blur-md flex flex-col items-center justify-center py-10 rounded-4xl overflow-hidden">
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/50 backdrop-blur-xl -z-10" />
 
