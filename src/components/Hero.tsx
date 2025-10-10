@@ -14,12 +14,10 @@ export const Hero = () => {
       <Slider />
 
       {/* ===== Navbar ===== */}
-      <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} dropdownRef={dropdownRef} />
-
-      {/* ===== Mobile Dropdown ===== */}
       <div ref={dropdownRef}>
-        <MobileNav menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-      </div>
+    <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} dropdownRef={dropdownRef} />
+    <MobileNav menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+  </div>
     </main>
   );
 };

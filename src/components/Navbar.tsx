@@ -12,27 +12,29 @@ export const Navbar: React.FC<NavbarProps> = ({ menuOpen, setMenuOpen, dropdownR
   const navRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        navRef.current &&
-        !navRef.current.contains(event.target as Node) &&
-        (!dropdownRef?.current || !dropdownRef.current.contains(event.target as Node))
-      ) {
-        setMenuOpen(false);
-      }
-    };
+  const handleClickOutside = (event: MouseEvent) => {
+    // Close menu if clicking outside BOTH navbar and dropdown container
+    if (
+      navRef.current &&
+      !navRef.current.contains(event.target as Node) &&
+      (!dropdownRef?.current || !dropdownRef.current.contains(event.target as Node))
+    ) {
+      setMenuOpen(false);
+    }
+  };
 
-    const handleEsc = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setMenuOpen(false);
-    };
+  const handleEsc = (event: KeyboardEvent) => {
+    if (event.key === "Escape") setMenuOpen(false);
+  };
 
-    document.addEventListener("mousedown", handleClickOutside);
-    document.addEventListener("keydown", handleEsc);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("keydown", handleEsc);
-    };
-  }, [setMenuOpen, dropdownRef]);
+  document.addEventListener("mousedown", handleClickOutside);
+  document.addEventListener("keydown", handleEsc);
+  return () => {
+    document.removeEventListener("mousedown", handleClickOutside);
+    document.removeEventListener("keydown", handleEsc);
+  };
+}, [setMenuOpen, dropdownRef]);
+
 
   return (
     <nav
