@@ -2,31 +2,41 @@ import { useState, useRef } from "react";
 import { Navbar } from "./Navbar";
 import { MobileNav } from "./NavItems";
 import { Slider } from "./Swiper";
-import { useInView, type Variants,motion } from "motion/react";
+import { useInView, motion, type Variants } from "motion/react";
 
 export const Hero = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const dropdownRef = useRef(null);
   const inView = useInView(dropdownRef, { once: true, margin: "-50px" });
 
-  const fadeDown: Variants = {
-    hidden: { opacity: 0, y: -30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  const scaleUp: Variants = {
+    hidden: { opacity: 0, scale: 0.85 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }, // smooth ease
+    },
   };
 
   return (
-    <main id="home" className="relative mx-5 bg-[#212121] text-white font-sans overflow-hidden rounded-[2rem] border border-white/20 shadow-sm">
-
+    <main
+      id="home"
+      className="relative mx-auto max-w-7xl bg-[#212121] text-white font-sans overflow-hidden rounded-[2rem] border border-white/20 shadow-sm"
+    >
       {/* ===== Background Slider ===== */}
       <Slider />
 
-      {/* ===== Navbar ===== */}
-     <motion.div
+      {/* ===== Navbar with Scale Animation ===== */}
+      <motion.div
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
-        variants={fadeDown}
+        variants={scaleUp}
       >
-        <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} dropdownRef={dropdownRef} />
+        <Navbar
+          menuOpen={menuOpen}
+          setMenuOpen={setMenuOpen}
+          dropdownRef={dropdownRef}
+        />
       </motion.div>
 
       {/* ===== Mobile Dropdown ===== */}

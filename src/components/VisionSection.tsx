@@ -1,6 +1,6 @@
 "use client";
 import { FaFilm, FaBookOpen, FaTools } from "react-icons/fa";
-import { motion, animate, type Variants, useInView } from "framer-motion";
+import { motion, animate, type Variants, useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
 export const VisionSection = () => {

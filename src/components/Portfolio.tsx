@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 import left from "../assets/left.png"; 
 import right from "../assets/right.png"; 
+
+
 const videos = [
   {
     id: "1",
@@ -162,6 +164,7 @@ const VideoSlider = ({ title, data }: { title: string; data: any[] }) => {
 const Portfolio = () => {
   return (
     <section
+    id="portfolio"
       className="relative w-full flex flex-col justify-center items-center text-white px-4 md:px-10 py-20 space-y-16 bg-cover bg-center"
       style={{
         backgroundImage:

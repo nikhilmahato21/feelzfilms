@@ -36,6 +36,12 @@ const logoImages = [
   "https://via.placeholder.com/80x80?text=Unsplash",
   "https://via.placeholder.com/80x80?text=BetterMotion",
   "https://via.placeholder.com/80x80?text=Sololearn",
+  "https://res.cloudinary.com/dynbpb9u0/image/upload/v1760086549/feelz%20films/8th_Milestone_logo-01_fccjph.png",
+  "https://via.placeholder.com/80x80?text=Digikala",
+  "https://via.placeholder.com/80x80?text=Citizen",
+  "https://via.placeholder.com/80x80?text=Unsplash",
+  "https://via.placeholder.com/80x80?text=BetterMotion",
+ 
 ];
 export default function TestimonialSection() {
   const [index, setIndex] = useState(0);
@@ -132,11 +138,11 @@ export default function TestimonialSection() {
   <div className="pointer-events-none absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-black to-transparent z-20" />
 
   {/* Scrolling row */}
-  <div className="flex whitespace-nowrap animate-marquee gap-4">
-    {[...logoImages, ...logoImages].map((src, idx) => (
+  {/* <div className="flex"><div className="flex whitespace-nowrap animate-marquee gap-4">
+    {[...logoImages].map((src, idx) => (
       <div
         key={idx}
-        className="flex justify-center items-center min-w-[80px] min-h-[80px] rounded-xl bg-white/5 backdrop-blur-md"
+        className="flex justify-center  items-center min-w-[80px] min-h-[80px] rounded-xl bg-white/5 backdrop-blur-md"
       >
         <img
           src={src}
@@ -145,7 +151,53 @@ export default function TestimonialSection() {
         />
       </div>
     ))}
+    
+    
   </div>
+   <div className="flex whitespace-nowrap animate-marquee gap-4">
+    {[...logoImages].map((src, idx) => (
+      <div
+        key={idx}
+        className="flex justify-center  items-center min-w-[80px] min-h-[80px] rounded-xl bg-white/5 backdrop-blur-md"
+      >
+        <img
+          src={src}
+          alt={`logo-${idx}`}
+          className="w-20 h-20 object-contain opacity-80"
+        />
+      </div>
+    ))}
+    
+    
+  </div>
+  </div> */}
+  <div className="flex"><div className="flex  space-x-16 animate-marquee">
+    {[...logoImages].map((src, idx) => (
+      
+        <img
+          src={src}
+          alt={`logo-${idx}`}
+          className="max-w-20  opacity-80"
+        />
+      
+    ))}
+    
+    
+  </div><div className="flex space-x-16 animate-marquee">
+    {[...logoImages].map((src, idx) => (
+      
+        <img
+          src={src}
+          alt={`logo-${idx}`}
+          className="max-w-20  opacity-80"
+        />
+      
+    ))}
+    
+    
+  </div></div>
+  
+  
 </div>
     </section>
   );

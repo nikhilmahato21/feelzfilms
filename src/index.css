@@ -59,7 +59,7 @@ html {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-50% - 8px));
+    transform: translateX(-50%);
   }
 }
 
