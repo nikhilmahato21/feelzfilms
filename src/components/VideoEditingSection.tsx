@@ -1,7 +1,12 @@
+"use client";
 import { Film, Scissors, Camera, PlayCircle, Sparkles, Clapperboard, Video, Star, Workflow } from "lucide-react";
-
+import { motion, type Variants, useInView } from "framer-motion";
+import { useRef } from "react";
 
 const VideoEditingSection = () => {
+  const sectionRef = useRef(null);
+  const inView = useInView(sectionRef, { once: true, margin: "-100px" });
+
   const cards = [
     {
       id: 1,
@@ -113,52 +118,56 @@ const VideoEditingSection = () => {
     },
   ];
 
+  // Scroll animation variants
+  const fadeUp: Variants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: "easeOut" } },
+  };
+
+  
+
   return (
-    <section id="services" className="relative  lg:min-h-screen w-full bg-[url('https://images.unsplash.com/photo-1638376776402-9a4b75fe21bb?q=80&w=1577&auto=format&fit=crop')] bg-cover bg-center backdrop-blur-md flex flex-col items-center justify-center py-10 rounded-4xl overflow-hidden">
-      {/* Overlay */}
+    <section
+      id="services"
+      ref={sectionRef}
+      className="relative w-full bg-[url('https://images.unsplash.com/photo-1638376776402-9a4b75fe21bb?q=80&w=1577&auto=format&fit=crop')] bg-cover bg-center backdrop-blur-md flex flex-col items-center justify-center py-10 rounded-4xl overflow-hidden"
+    >
       <div className="absolute inset-0 bg-black/50 backdrop-blur-xl -z-10" />
 
       {/* Header */}
-      <div className="text-center max-w-3xl mx-auto mb-12">
-        <p className="uppercase tracking-wide text-gray-200/80 mb-2 text-sm font-medium">
-          Craft
-        </p>
+      <motion.div
+        className="text-center max-w-3xl mx-auto mb-12"
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        variants={fadeUp}
+      >
+        <p className="uppercase tracking-wide text-gray-200/80 mb-2 text-sm font-medium">Craft</p>
         <h1 className="text-4xl md:text-5xl mx-5 font-extrabold font-unbounded text-white mb-3 drop-shadow-lg">
           Video Editing That Moves
         </h1>
-        <p className="text-gray-300 text-lg font-sans">
-          Sharp cuts that capture emotion and narrative precision
-        </p>
-      </div>
+        <p className="text-gray-300 text-lg font-sans">Sharp cuts that capture emotion and narrative precision</p>
+      </motion.div>
 
-      {/* Carousel */}
-      <div className="w-full ml-5 overflow-x-auto scrollbar-hide snap-x snap-mandatory flex gap-6 px-4 scroll-smooth ">
+      {/* Carousel (cards remain static) */}
+      <div className="w-full ml-5 overflow-x-auto scrollbar-hide snap-x snap-mandatory flex gap-6 px-4 scroll-smooth">
         {cards.map((card) => (
           <div
             key={card.id}
-            className="snap-start flex-shrink-0 w-[90%] sm:w-[70%] md:w-[45%] lg:w-[35%] xl:w-[30%] bg-white/10 border border-white/20 backdrop-blur-xl rounded-3xl shadow-lg overflow-hidden hover:bg-white/20 transition-all duration-300 p-6 flex flex-col justify-between"
+            className="snap-start flex-shrink-0 w-[90%] sm:w-[70%] md:w-[45%] lg:w-[35%] xl:w-[30%] bg-white/10 border border-white/20 backdrop-blur-xl rounded-3xl shadow-lg hover:bg-white/20 transition-all duration-300 p-6 flex flex-col justify-between"
           >
             <div>
-              <p className="uppercase text-sm tracking-wide text-gray-300 mb-2">
-                {card.subtitle}
-              </p>
-
-              {/* Icon + Title */}
+              <p className="uppercase text-sm tracking-wide text-gray-300 mb-2">{card.subtitle}</p>
               <div className="flex items-center gap-3 mb-3">
                 {card.icon}
-                <h2 className="text-2xl font-extrabold font-unbounded text-white">
-                  {card.title}
-                </h2>
+                <h2 className="text-2xl font-extrabold font-unbounded text-white">{card.title}</h2>
               </div>
-
               <p className="text-gray-300 mb-6">{card.description}</p>
             </div>
 
-            {/* Buttons */}
             <div className="flex gap-4">
-              {card.buttons.map((btn, i) => (
+              {card.buttons.map((btn, idx) => (
                 <button
-                  key={i}
+                  key={idx}
                   className={`px-5 py-2 rounded-full text-sm border transition-all ${
                     btn.variant === "primary"
                       ? "bg-white/20 border-white/30 hover:bg-white/30"
@@ -173,46 +182,38 @@ const VideoEditingSection = () => {
         ))}
       </div>
 
-      <div className="relative w-full flex flex-col overflow-hidden gap-5 mt-16 py-10">
-  {/* LEFT FADE */}
-  <div className="pointer-events-none absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-black to-transparent z-20" />
-  {/* RIGHT FADE */}
-  {/* <div className="pointer-events-none absolute right-0 top-0 h-full w-32   bg-gradient-to-l from-black/40 to-transparent z-20" /> */}
-
-  {/* FIRST MARQUEE */}
-  <div className="flex whitespace-nowrap animate-marquee gap-2">
-    {[...cards, ...cards].map((card, idx) => (
-      <div
-        key={idx}
-        className="flex items-center gap-2 sm:gap-3 bg-white/10 border border-white/20 rounded-full 
-        px-3 py-2 sm:px-5 sm:py-2 
-        text-xs sm:text-sm font-medium text-white/80 backdrop-blur-md"
+      {/* Marquees */}
+      <motion.div
+        className="relative w-full flex flex-col overflow-hidden gap-5 mt-16 py-10"
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        variants={fadeUp}
       >
-        {card.icon}
-        <span>{card.title}</span>
-      </div>
-    ))}
-  </div>
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-black to-transparent z-20" />
+        <div className="flex whitespace-nowrap animate-marquee gap-2">
+          {[...cards, ...cards].map((card, idx) => (
+            <div
+              key={idx}
+              className="flex items-center gap-2 sm:gap-3 bg-white/10 border border-white/20 rounded-full px-3 py-2 sm:px-5 sm:py-2 text-xs sm:text-sm font-medium text-white/80 backdrop-blur-md"
+            >
+              {card.icon}
+              <span>{card.title}</span>
+            </div>
+          ))}
+        </div>
 
-  {/* SECOND MARQUEE */}
-  <div className="flex whitespace-nowrap animate-marquee-left gap-2">
-    {[...cards, ...cards].map((card, idx) => (
-      <div
-        key={idx}
-        className="flex items-center gap-2 sm:gap-3 bg-white/10 border border-white/20 rounded-full 
-        px-3 py-2 sm:px-5 sm:py-2  
-        text-xs sm:text-sm font-medium text-white/80 backdrop-blur-md"
-      >
-        {card.icon}
-        <span>{card.title}</span>
-      </div>
-    ))}
-  </div>
-</div>
-
-
-
-     
+        <div className="flex whitespace-nowrap animate-marquee-left gap-2">
+          {[...cards, ...cards].map((card, idx) => (
+            <div
+              key={idx}
+              className="flex items-center gap-2 sm:gap-3 bg-white/10 border border-white/20 rounded-full px-3 py-2 sm:px-5 sm:py-2 text-xs sm:text-sm font-medium text-white/80 backdrop-blur-md"
+            >
+              {card.icon}
+              <span>{card.title}</span>
+            </div>
+          ))}
+        </div>
+      </motion.div>
     </section>
   );
 };
