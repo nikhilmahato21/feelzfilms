@@ -25,8 +25,8 @@ export default function Footer() {
       >
         {/* Column 1 */}
         <div>
-          <h3 className="text-white text-xl font-semibold mb-4 flex items-center gap-2">
-            <span className="text-2xl">⬢</span> skipmatrix
+          <h3 className="text-white text-xl font-unbounded font-semibold mb-4 flex items-center gap-2">
+             FEELZ FILMS
           </h3>
           <p className="text-sm leading-relaxed">
             20619 Torrence Chapel Rd <br />
