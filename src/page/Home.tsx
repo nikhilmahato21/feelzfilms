@@ -22,22 +22,22 @@ export const Home = () => {
 };
 
   // Helper component for scroll animation
-  const AnimatedSection = ({ children }: { children: React.ReactNode }) => {
-    const ref = useRef(null);
-   const inView = useInView(ref, { once: false, margin: "-20%" });
+  // const AnimatedSection = ({ children }: { children: React.ReactNode }) => {
+  //   const ref = useRef(null);
+  //  const inView = useInView(ref, { once: false, margin: "-20%" });
 
 
-    return (
-      <motion.div
-        ref={ref}
-        variants={fadeUp}
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
-      >
-        {children}
-      </motion.div>
-    );
-  };
+  //   return (
+  //     <motion.div
+  //       ref={ref}
+  //       variants={fadeUp}
+  //       initial="hidden"
+  //       animate={inView ? "visible" : "hidden"}
+  //     >
+  //       {children}
+  //     </motion.div>
+  //   );
+  // };
 
   return (
     <main className="bg-black text-white font-sans">
