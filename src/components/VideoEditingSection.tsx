@@ -180,12 +180,12 @@ const VideoEditingSection = () => {
   {/* <div className="pointer-events-none absolute right-0 top-0 h-full w-32   bg-gradient-to-l from-black/40 to-transparent z-20" /> */}
 
   {/* FIRST MARQUEE */}
-  <div className="flex whitespace-nowrap animate-marquee">
+  <div className="flex whitespace-nowrap animate-marquee gap-2">
     {[...cards, ...cards].map((card, idx) => (
       <div
         key={idx}
         className="flex items-center gap-2 sm:gap-3 bg-white/10 border border-white/20 rounded-full 
-        px-3 py-2 sm:px-5 sm:py-2 mx-2 sm:mx-3 
+        px-3 py-2 sm:px-5 sm:py-2 
         text-xs sm:text-sm font-medium text-white/80 backdrop-blur-md"
       >
         {card.icon}
@@ -195,12 +195,12 @@ const VideoEditingSection = () => {
   </div>
 
   {/* SECOND MARQUEE */}
-  <div className="flex whitespace-nowrap animate-marquee-left">
+  <div className="flex whitespace-nowrap animate-marquee-left gap-2">
     {[...cards, ...cards].map((card, idx) => (
       <div
         key={idx}
         className="flex items-center gap-2 sm:gap-3 bg-white/10 border border-white/20 rounded-full 
-        px-3 py-2 sm:px-5 sm:py-2 mx-2 sm:mx-3 
+        px-3 py-2 sm:px-5 sm:py-2  
         text-xs sm:text-sm font-medium text-white/80 backdrop-blur-md"
       >
         {card.icon}

@@ -1,3 +1,4 @@
+import Footer from "../components/Footer"
 import { Hero } from "../components/Hero"
 import Portfolio from "../components/Portfolio"
 import TestimonialsSection from "../components/TestimonialsSection"
@@ -20,6 +21,7 @@ export const Home = () => {
         <VideoEditingSection/>
         <Portfolio/>
         <TestimonialsSection/>
+        <Footer/>
         {/* <About /> */}
         {/* <Services /> */}
         {/* <Contact /> */}

@@ -28,7 +28,7 @@ const testimonials = [
   },
 ];
 const logos = [
-  "Skaleeee",
+  "Skale",
   "Metafy",
   "UX Cabin",
   "digikala",
@@ -126,24 +126,32 @@ export default function TestimonialSection() {
       </div>
 
       {/* Optional logos row (keeps responsive) */}
-      <div className="relative   z-10 w-full flex flex-col overflow-hidden gap-0 mt-16">
-          <div className="pointer-events-none absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-black to-transparent z-20" />
-          <div className="pointer-events-none absolute right-0 top-0 h-full w-32   bg-gradient-to-l from-black to-transparent z-20" />
-        <div className="flex whitespace-nowrap animate-marquee">
-          {[...logos, ...logos].map((logo, idx) => (
-            <div
-              key={idx}
-              className="flex flex-col items-center  
-               py-5 sm:px-6 sm:py-2 mx-2 sm:mx-3 w-24 h-24 
-              text-xs sm:text-sm font-medium text-white/80 backdrop-blur-md "
-            >
-             <img src={testimg} alt="" className="w-10 h-10 opacity-40 inset-0 overlay-white/10"/> {logo} 
-            </div>
-          ))}
-        </div>
+      <div className="relative z-10 w-full flex flex-col overflow-hidden gap-0 mt-16">
+  {/* Gradient fades */}
+  <div className="pointer-events-none absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-black to-transparent z-20" />
+  <div className="pointer-events-none absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-black to-transparent z-20" />
 
-        
+  {/* Scrolling row */}
+  <div className="flex whitespace-nowrap animate-marquee">
+    {[...logos, ...logos].map((logo, idx) => (
+      <div
+        key={idx}
+        className="flex flex-col justify-center items-center 
+                 min-w-32  min-h-28 sm:min-h-32 
+                   rounded-xl bg-white/5 border border-white/10 
+                   backdrop-blur-md text-xs sm:text-sm font-medium text-white/80"
+      >
+        <img
+          src={testimg}
+          alt=""
+          className="w-20 h-20 opacity-60 mb-2"
+        />
+        {logo}
       </div>
+    ))}
+  </div>
+</div>
+
     </section>
   );
 }

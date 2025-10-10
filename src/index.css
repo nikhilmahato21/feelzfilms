@@ -51,28 +51,46 @@
 }
 
 @keyframes marquee {
-          0% { transform: translateX(0%); }
-          100% { transform: translateX(-50%); }
-        }
-@keyframes marquee-left {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0%); }
-}
-        .animate-marquee {
-          display: inline-flex;
-          animation: marquee 20s linear infinite;
-        }
-        .animate-marquee-left {
-          display: inline-flex;
-          animation: marquee-left 20s linear infinite;
-        }
-
-        @media (max-width: 640px) {
-  .animate-marquee {
-    animation-duration: 5s; /* slower animation for mobile */
+  0% {
+    transform: translateX(0);
   }
+  100% {
+    transform: translateX(calc(-50% - 8px));
+  }
+}
 
+.animate-marquee {
+  display: flex;
+  animation: marquee 20s linear infinite;
+  will-change: transform;
+}
+@keyframes marquee-left {
+  0% {
+    transform: translateX(calc(-50% - 8px));
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-left {
+  display: flex;
+  animation: marquee-left 20s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee,
+.animate-marquee-left {
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  backface-visibility: hidden;
+  perspective: 1000;
+}
+
+
+@media (max-width: 640px) {
+  .animate-marquee,
   .animate-marquee-left {
-    animation-duration: 5s;
+    animation-duration: 10s; /* slower for mobile */
   }
 }
