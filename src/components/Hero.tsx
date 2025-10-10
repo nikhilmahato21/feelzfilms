@@ -2,10 +2,17 @@ import { useState, useRef } from "react";
 import { Navbar } from "./Navbar";
 import { MobileNav } from "./NavItems";
 import { Slider } from "./Swiper";
+import { useInView, type Variants,motion } from "motion/react";
 
 export const Hero = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef(null);
+  const inView = useInView(dropdownRef, { once: true, margin: "-50px" });
+
+  const fadeDown: Variants = {
+    hidden: { opacity: 0, y: -30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  };
 
   return (
     <main id="home" className="relative mx-5 bg-[#212121] text-white font-sans overflow-hidden rounded-[2rem] border border-white/20 shadow-sm">
@@ -14,10 +21,18 @@ export const Hero = () => {
       <Slider />
 
       {/* ===== Navbar ===== */}
+     <motion.div
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        variants={fadeDown}
+      >
+        <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} dropdownRef={dropdownRef} />
+      </motion.div>
+
+      {/* ===== Mobile Dropdown ===== */}
       <div ref={dropdownRef}>
-    <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} dropdownRef={dropdownRef} />
-    <MobileNav menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-  </div>
+        <MobileNav menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+      </div>
     </main>
   );
 };

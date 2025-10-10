@@ -6,8 +6,9 @@ import Footer from "../components/Footer";
 import { Hero } from "../components/Hero";
 import Portfolio from "../components/Portfolio";
 import TestimonialsSection from "../components/TestimonialsSection";
-import VideoEditingSection from "../components/VideoEditingSection";
+
 import { VisionSection } from "../components/VisionSection";
+import VideoEditingSection from "../components/VideoEditingSection";
 
 export const Home = () => {
   // Animation variants
