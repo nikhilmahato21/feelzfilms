@@ -1,6 +1,6 @@
 "use client";
 import { FaFilm, FaBookOpen, FaTools } from "react-icons/fa";
-import { motion, animate, type Variants, useInView } from "motion/react";
+import { motion, animate,useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
 export const VisionSection = () => {
@@ -42,13 +42,7 @@ export const VisionSection = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Animation variants
-  // const fadeUp: Variants = {
-  //   hidden: { opacity: 0, y: 50 },
-  //   visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
-  // };
-  const fadeLeft: Variants = { hidden: { opacity: 0, x: -50 }, visible: { opacity: 1, x: 0, transition: { duration: 0.8 } } };
-  const fadeRight: Variants = { hidden: { opacity: 0, x: 50 }, visible: { opacity: 1, x: 0, transition: { duration: 0.8 } } };
+  
 
   return (
     <section
@@ -65,7 +59,7 @@ export const VisionSection = () => {
         // variants={fadeUp}
       >
         {/* Left Content */}
-        <motion.div className="text-white space-y-6 md:w-2/3" variants={fadeLeft}>
+        <div className="text-white space-y-6 md:w-2/3">
           <p className="uppercase tracking-wider text-sm font-semibold opacity-90">About Us</p>
           <h2 className="text-4xl md:text-4xl font-extrabold font-unbounded leading-tight">We are Feelz Films</h2>
           <p className="text-base text-gray-200 font-sans max-w-2xl">
@@ -102,10 +96,10 @@ export const VisionSection = () => {
               <span className="text-sm lg:text-md font-unbounded text-gray-300">Clients Onboard</span>
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Right Carousel */}
-        <motion.div className="relative w-full md:w-1/3 mx-auto flex flex-col items-center overflow-hidden" variants={fadeRight}>
+        <div className="relative w-full md:w-1/3 mx-auto flex flex-col items-center overflow-hidden" >
           <motion.div
             className="flex w-full"
             animate={{ x: `-${current * 100}%` }}
@@ -120,7 +114,7 @@ export const VisionSection = () => {
           >
             {images.map((src, index) => (
               <div key={index} className="flex-shrink-0 w-full rounded-2xl overflow-hidden shadow-lg border border-white/30 bg-white/10 backdrop-blur-lg">
-                <img src={src} alt={`Slide ${index + 1}`} className="w-full h-full object-cover" />
+                <img loading="lazy" src={src} alt={`Slide ${index + 1}`} className="w-full h-full object-cover" />
               </div>
             ))}
           </motion.div>
@@ -139,7 +133,7 @@ export const VisionSection = () => {
               </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

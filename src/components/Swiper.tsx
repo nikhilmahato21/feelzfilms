@@ -46,6 +46,7 @@ export const Slider = () => {
             <div className="relative w-full h-full">
               {/* Background Image */}
               <img
+              loading="lazy"
                 src={slide.image}
                 alt={`Slide ${index + 1}`}
                 className="w-full h-full object-cover"

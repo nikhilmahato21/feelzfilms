@@ -108,6 +108,7 @@ export default function TestimonialSection() {
               >
                 <div className="flex items-start gap-4">
                   <img
+                  loading="lazy"
                     src={testimonials[index].image}
                     alt={testimonials[index].name}
                     className="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover border border-white/30 flex-shrink-0"
@@ -175,6 +176,7 @@ export default function TestimonialSection() {
     {[...logoImages].map((src, idx) => (
       
         <img
+        loading="lazy"
           src={src}
           alt={`logo-${idx}`}
           className="max-w-20  opacity-80"
@@ -187,6 +189,7 @@ export default function TestimonialSection() {
     {[...logoImages].map((src, idx) => (
       
         <img
+        loading="lazy"
           src={src}
           alt={`logo-${idx}`}
           className="max-w-20  opacity-80"

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import { motion } from "motion/react";
 import left from "../assets/left.png"; 
@@ -63,84 +63,118 @@ const shorts = [
 
 
 
-const VideoSlider = ({ title, data }: { title: string; data: any[] }) => {
+
+interface VideoData {
+  id: string;
+  title: string;
+  url: string;
+}
+
+interface VideoSliderProps {
+  title: string;
+  data: VideoData[];
+}
+
+const VideoSlider = ({ title, data }: VideoSliderProps) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [players, setPlayers] = useState<any[]>([]);
   const [currentVideo, setCurrentVideo] = useState<string | null>(null);
+  const [containerWidth, setContainerWidth] = useState(0);
 
+  const memoizedData = useMemo(() => data, [data]);
+
+  // ✅ Cache container width & update on resize
+  useEffect(() => {
+    const updateWidth = () => {
+      if (scrollRef.current) {
+        setContainerWidth(scrollRef.current.clientWidth * 0.9);
+      }
+    };
+    updateWidth();
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
+  }, []);
+
+  // ✅ Smooth scroll function using cached width
   const scroll = (direction: "left" | "right") => {
-    const container = scrollRef.current;
-    if (!container) return;
-    const scrollAmount = container.clientWidth * 0.9;
-    container.scrollBy({
-      left: direction === "left" ? -scrollAmount : scrollAmount,
+    if (!scrollRef.current) return;
+    scrollRef.current.scrollBy({
+      left: direction === "left" ? -containerWidth : containerWidth,
       behavior: "smooth",
     });
   };
 
-  // Load YouTube IFrame API
+  // ✅ Load YouTube API safely and defer initialization
   useEffect(() => {
-    if (!(window as any).YT) {
-      const tag = document.createElement("script");
-      tag.src = "https://www.youtube.com/iframe_api";
-      document.body.appendChild(tag);
-    } else {
-      onYouTubeIframeAPIReady();
-    }
+    const loadYT = () => {
+      if (!(window as any).YT) {
+        const tag = document.createElement("script");
+        tag.src = "https://www.youtube.com/iframe_api";
+        document.body.appendChild(tag);
+        (window as any).onYouTubeIframeAPIReady = initPlayers;
+      } else {
+        initPlayers();
+      }
+    };
 
-    (window as any).onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
-
-    function onYouTubeIframeAPIReady() {
-      const newPlayers = data.map((video) => {
-        return new (window as any).YT.Player(`player-${video.id}`, {
-          events: {
-            onStateChange: (e: any) => {
-              if (e.data === (window as any).YT.PlayerState.PLAYING) {
-                setCurrentVideo(video.id);
-              }
+    const initPlayers = () => {
+      // Avoid forced reflow by deferring initialization
+      requestAnimationFrame(() => {
+        const newPlayers = memoizedData.map((video) => {
+          return new (window as any).YT.Player(`player-${video.id}`, {
+            events: {
+              onStateChange: (e: any) => {
+                if (e.data === (window as any).YT.PlayerState.PLAYING) {
+                  setCurrentVideo(video.id);
+                }
+              },
             },
-          },
+          });
         });
+        setPlayers(newPlayers);
       });
-      setPlayers(newPlayers);
-    }
-  }, [data]);
+    };
 
-  // Pause other videos
+    loadYT();
+  }, [memoizedData]);
+
+  // ✅ Pause all other videos when one plays
   useEffect(() => {
     players.forEach((player, index) => {
-      if (data[index].id !== currentVideo && player.pauseVideo) {
+      if (memoizedData[index].id !== currentVideo && player.pauseVideo) {
         player.pauseVideo();
       }
     });
-  }, [currentVideo, players, data]);
+  }, [currentVideo, players, memoizedData]);
 
   return (
     <div className="relative w-full">
-      <h2 className="text-2xl md:text-3xl font-unbounded font-bold mb-6">{title}</h2>
+      <h2 className="text-2xl md:text-3xl font-unbounded font-bold mb-6">
+        {title}
+      </h2>
 
-      {/* Arrows */}
+      {/* Navigation Buttons */}
       <button
         onClick={() => scroll("left")}
-        className="absolute left-1 top-1/2 -translate-y-1/2 z-10 bg-black/60 hover:bg-black text-white py-2 rounded-full transition"
+        className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black/60 hover:bg-black text-white p-2 rounded-full transition"
       >
-        <img src={left} alt="Previous" className="opacity-70 shadow-amber-50" />
+        <img src={left} alt="Previous" className="w-6 h-6 opacity-70" />
       </button>
 
       <button
         onClick={() => scroll("right")}
-        className="absolute right-1 top-1/2 -translate-y-1/2 z-10 bg-black/60 hover:bg-black text-white py-2 rounded-full transition"
+        className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black/60 hover:bg-black text-white p-2 rounded-full transition"
       >
-        <img src={right} alt="Forward" className="opacity-70 shadow-amber-50" />
+        <img src={right} alt="Next" className="w-6 h-6 opacity-70" />
       </button>
 
-      {/* Scrollable videos */}
+      {/* Scrollable Videos */}
       <motion.div
         ref={scrollRef}
         className="flex gap-6 overflow-x-auto scrollbar-hide scroll-smooth snap-x snap-mandatory"
         whileTap={{ cursor: "grabbing" }}
       >
-        {data.map((video) => (
+        {memoizedData.map((video) => (
           <div
             key={video.id}
             className="flex-shrink-0 w-[90%] sm:w-[45%] lg:w-[30%] snap-center rounded-xl overflow-hidden bg-gray-900 hover:scale-[1.02] transition-transform"
@@ -148,17 +182,20 @@ const VideoSlider = ({ title, data }: { title: string; data: any[] }) => {
             <iframe
               id={`player-${video.id}`}
               className="w-full aspect-video"
-              src={video.url + "&enablejsapi=1"} // <-- enable API
+              src={`${video.url}&enablejsapi=1`}
               title={video.title}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
-            ></iframe>
+            />
           </div>
         ))}
       </motion.div>
     </div>
   );
 };
+
+
+
 
 
 const Portfolio = () => {
