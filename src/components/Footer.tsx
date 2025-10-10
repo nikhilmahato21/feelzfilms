@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+
 
 export default function Footer() {
   return (
@@ -16,11 +16,8 @@ export default function Footer() {
       <div className="absolute inset-0 bg-black/70 backdrop-blur-xl" />
 
       {/* Content */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
+      <div
+       
         className="relative z-10 max-w-7xl mx-auto px-6 py-16 text-gray-300 grid grid-cols-1 md:grid-cols-4 gap-12"
       >
         {/* Column 1 */}
@@ -80,7 +77,7 @@ export default function Footer() {
             <li>Cookie policy</li>
           </ul>
         </div>
-      </motion.div>
+      </div>
 
       {/* Bottom line */}
       <div className="relative z-10 border-t border-white/10 mt-6">
