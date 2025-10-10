@@ -24,7 +24,8 @@ export const Home = () => {
   // Helper component for scroll animation
   const AnimatedSection = ({ children }: { children: React.ReactNode }) => {
     const ref = useRef(null);
-    const inView = useInView(ref, { once: true, margin: "-100px" });
+   const inView = useInView(ref, { once: false, margin: "-20%" });
+
 
     return (
       <motion.div
@@ -50,7 +51,8 @@ export const Home = () => {
         </AnimatedSection>
 
         <AnimatedSection>
-          <VideoEditingSection />
+          <div><VideoEditingSection /></div>
+          
         </AnimatedSection>
 
         <AnimatedSection>

@@ -1,12 +1,6 @@
-"use client";
 import { Film, Scissors, Camera, PlayCircle, Sparkles, Clapperboard, Video, Star, Workflow } from "lucide-react";
-import { motion, type Variants, useInView } from "framer-motion";
-import { useRef } from "react";
 
 const VideoEditingSection = () => {
-  const sectionRef = useRef(null);
-  const inView = useInView(sectionRef, { once: true, margin: "-100px" });
-
   const cards = [
     {
       id: 1,
@@ -118,35 +112,23 @@ const VideoEditingSection = () => {
     },
   ];
 
-  // Scroll animation variants
-  const fadeUp: Variants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-  };
-
-  
-
   return (
     <section
       id="services"
-      ref={sectionRef}
-      className="relative w-full bg-[url('https://images.unsplash.com/photo-1638376776402-9a4b75fe21bb?q=80&w=1577&auto=format&fit=crop')] bg-cover bg-center backdrop-blur-md flex flex-col items-center justify-center py-10 rounded-4xl overflow-hidden"
+      className="relative z-10 w-full bg-[url('https://images.unsplash.com/photo-1638376776402-9a4b75fe21bb?q=80&w=1577&auto=format&fit=crop')] bg-cover bg-center backdrop-blur-md flex flex-col items-center justify-center py-10 rounded-4xl overflow-hidden"
     >
-      <div className="absolute inset-0 bg-black/50 backdrop-blur-xl -z-10" />
+      <div className="absolute inset-0 pointer-events-none bg-black/50 backdrop-blur-xl -z-10" />
 
       {/* Header */}
-      <motion.div
-        className="text-center max-w-3xl mx-auto mb-12"
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
-        variants={fadeUp}
-      >
+      <div className="text-center max-w-3xl mx-auto mb-12">
         <p className="uppercase tracking-wide text-gray-200/80 mb-2 text-sm font-medium">Craft</p>
         <h1 className="text-4xl md:text-5xl mx-5 font-extrabold font-unbounded text-white mb-3 drop-shadow-lg">
           Video Editing That Moves
         </h1>
-        <p className="text-gray-300 text-lg font-sans">Sharp cuts that capture emotion and narrative precision</p>
-      </motion.div>
+        <p className="text-gray-300 text-lg font-sans">
+          Sharp cuts that capture emotion and narrative precision
+        </p>
+      </div>
 
       {/* Carousel (cards remain static) */}
       <div className="w-full ml-5 overflow-x-auto scrollbar-hide snap-x snap-mandatory flex gap-6 px-4 scroll-smooth">
@@ -183,12 +165,7 @@ const VideoEditingSection = () => {
       </div>
 
       {/* Marquees */}
-      <motion.div
-        className="relative w-full flex flex-col overflow-hidden gap-5 mt-16 py-10"
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
-        variants={fadeUp}
-      >
+      <div className="relative w-full flex flex-col overflow-hidden gap-5 mt-16 py-10">
         <div className="pointer-events-none absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-black to-transparent z-20" />
         <div className="flex whitespace-nowrap animate-marquee gap-2">
           {[...cards, ...cards].map((card, idx) => (
@@ -213,7 +190,7 @@ const VideoEditingSection = () => {
             </div>
           ))}
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };

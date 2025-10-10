@@ -10,7 +10,7 @@ export const VisionSection = () => {
 
   // Ref to detect when section is in view
   const sectionRef = useRef(null);
-  const inView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const inView = useInView(sectionRef, { once: true, margin: "-20%" });
 
   // Counters animate only when in view
   useEffect(() => {
