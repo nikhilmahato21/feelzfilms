@@ -3,7 +3,7 @@ import {  useRef, useState } from "react";
 import { motion } from "motion/react";
 import left from "../assets/left.png"; 
 import right from "../assets/right.png"; 
-
+import blackbg from "../assets/blackbg.avif";
 
 const videos = [
   {
@@ -198,7 +198,7 @@ const Portfolio = () => {
       className="relative w-full flex flex-col justify-center items-center text-white px-4 md:px-10 py-20 space-y-16 bg-cover bg-center"
       style={{
         backgroundImage:
-          "url('https://images.unsplash.com/photo-1638376776402-9a4b75fe21bb?q=80&w=1577&auto=format&fit=crop')", 
+          `url(${blackbg})`, 
       }}
     >
        {/* Overlay */}

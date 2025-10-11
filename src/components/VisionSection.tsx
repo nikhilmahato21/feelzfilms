@@ -1,40 +1,50 @@
 "use client";
+
 import { FaFilm, FaBookOpen, FaTools } from "react-icons/fa";
-import { motion, animate,useInView } from "motion/react";
+import { motion, useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
+
+// Import your images
+import blackbg from "../assets/blackbg.avif";
+import about1 from "../assets/About1.avif";
+import about2 from "../assets/About2.avif";
+import about3 from "../assets/About3.avif";
 
 export const VisionSection = () => {
   const [views, setViews] = useState(0);
   const [works, setWorks] = useState(0);
   const [clients, setClients] = useState(0);
 
-  // Ref to detect when section is in view
   const sectionRef = useRef(null);
   const inView = useInView(sectionRef, { once: true, margin: "-20%" });
 
-  // Counters animate only when in view
+  // Animate counters
   useEffect(() => {
     if (!inView) return;
 
-    const controls1 = animate(0, 97, { duration: 2, onUpdate: (v) => setViews(Math.floor(v)) });
-    const controls2 = animate(0, 3700, { duration: 2, onUpdate: (v) => setWorks(Math.floor(v)) });
-    const controls3 = animate(0, 332, { duration: 2, onUpdate: (v) => setClients(Math.floor(v)) });
+    const duration = 2; // seconds
+    let start = 0;
+    const endValues = { views: 97, works: 3700, clients: 332 };
+    const stepTime = 20; // ms
 
-    return () => {
-      controls1.stop();
-      controls2.stop();
-      controls3.stop();
-    };
+    const interval = setInterval(() => {
+      start += stepTime;
+      const progress = Math.min(start / (duration * 1000), 1);
+
+      setViews(Math.floor(endValues.views * progress));
+      setWorks(Math.floor(endValues.works * progress));
+      setClients(Math.floor(endValues.clients * progress));
+
+      if (progress === 1) clearInterval(interval);
+    }, stepTime);
+
+    return () => clearInterval(interval);
   }, [inView]);
 
-  const images = [
-    "https://images.unsplash.com/photo-1512403754473-27835f7b9984?q=80&w=1015&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1528109966604-5a6a4a964e8d?q=80&w=987&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1574717025058-2f8737d2e2b7?q=80&w=987&auto=format&fit=crop",
-  ];
+  // Carousel
+  const images = [about1, about2, about3];
   const [current, setCurrent] = useState(0);
 
-  // Auto-slide
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
@@ -42,26 +52,26 @@ export const VisionSection = () => {
     return () => clearInterval(interval);
   }, []);
 
-  
-
   return (
     <section
       id="about"
       ref={sectionRef}
-      className="relative  w-full bg-[url('https://images.unsplash.com/photo-1638376776402-9a4b75fe21bb?q=80&w=1577&auto=format&fit=crop')] rounded-3xl bg-cover bg-center backdrop-blur-md flex items-center justify-center px-3 py-8 mt-3 lg:mt-0"
+      className="relative w-full rounded-3xl flex items-center justify-center px-3 py-8 mt-3 lg:mt-0"
+      style={{
+        backgroundImage: `url(${blackbg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
     >
       <div className="absolute inset-0 bg-black/50 backdrop-blur-xl -z-10 rounded-3xl" />
 
-      <div
-        className="max-w-7xl w-full h-full flex flex-col md:flex-row items-center justify-between gap-10 bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl shadow-2xl p-8 md:p-20"
-        // initial="hidden"
-        // animate={inView ? "visible" : "hidden"}
-        // variants={fadeUp}
-      >
+      <div className="max-w-7xl w-full flex flex-col md:flex-row items-center justify-between gap-10 bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl shadow-2xl p-8 md:p-20">
         {/* Left Content */}
         <div className="text-white space-y-6 md:w-2/3">
           <p className="uppercase tracking-wider text-sm font-semibold opacity-90">About Us</p>
-          <h2 className="text-4xl md:text-4xl font-extrabold font-unbounded leading-tight">We are Feelz Films</h2>
+          <h2 className="text-4xl md:text-4xl font-extrabold font-unbounded leading-tight">
+            We are Feelz Films
+          </h2>
           <p className="text-base text-gray-200 font-sans max-w-2xl">
             Feelz Films Production House Pvt. Ltd. is one of India’s leading content agencies...
           </p>
@@ -84,24 +94,30 @@ export const VisionSection = () => {
           {/* Counters */}
           <div className="flex gap-4 md:gap-10 pt-6 text-center">
             <div className="flex flex-col items-center">
-              <span className="text-xl lg:text-4xl font-bold text-white">{views.toLocaleString("en-IN")} M</span>
+              <span className="text-xl lg:text-4xl font-bold text-white">
+                <span className="inline-block min-w-[5ch]">{views.toLocaleString("en-IN")} M</span>
+              </span>
               <span className="text-sm lg:text-md font-unbounded text-gray-300">Total Views</span>
             </div>
             <div className="flex flex-col items-center">
-              <span className="text-xl lg:text-4xl font-bold text-white">{works.toLocaleString("en-IN")} +</span>
+              <span className="text-xl lg:text-4xl font-bold text-white">
+                <span className="inline-block min-w-[5ch]">{works.toLocaleString("en-IN")} +</span>
+              </span>
               <span className="text-sm lg:text-md font-unbounded text-gray-300">Total Projects</span>
             </div>
             <div className="flex flex-col items-center">
-              <span className="text-xl lg:text-4xl font-bold text-white">{clients.toLocaleString("en-IN")} +</span>
+              <span className="text-xl lg:text-4xl font-bold text-white">
+                <span className="inline-block min-w-[5ch]">{clients.toLocaleString("en-IN")} +</span>
+              </span>
               <span className="text-sm lg:text-md font-unbounded text-gray-300">Clients Onboard</span>
             </div>
           </div>
         </div>
 
         {/* Right Carousel */}
-        <div className="relative w-full md:w-1/3 mx-auto flex flex-col items-center overflow-hidden" >
+        <div className="relative w-full md:w-1/3 mx-auto flex flex-col items-center overflow-hidden h-64 md:h-80 lg:h-96">
           <motion.div
-            className="flex w-full"
+            className="flex w-full h-full"
             animate={{ x: `-${current * 100}%` }}
             transition={{ type: "tween", duration: 0.7 }}
             drag="x"
@@ -113,8 +129,14 @@ export const VisionSection = () => {
             }}
           >
             {images.map((src, index) => (
-              <div key={index} className="flex-shrink-0 w-full rounded-2xl overflow-hidden shadow-lg border border-white/30 bg-white/10 backdrop-blur-lg">
-                <img loading="lazy" src={src} alt={`Slide ${index + 1}`} className="w-full h-full object-cover" />
+              <div key={index} className="flex-shrink-0 w-full h-full rounded-2xl overflow-hidden shadow-lg border border-white/30 bg-white/10 backdrop-blur-lg">
+                <img
+                  loading="lazy"
+                  src={src}
+                  alt={`Slide ${index + 1}`}
+                  className="w-full h-full object-cover"
+                  style={{ aspectRatio: "16/9" }}
+                />
               </div>
             ))}
           </motion.div>
@@ -125,7 +147,12 @@ export const VisionSection = () => {
               <div key={index} className="flex items-center justify-center cursor-pointer" onClick={() => setCurrent(index)}>
                 {current === index ? (
                   <div className="w-6 border border-white/10 rounded-full">
-                    <motion.div className="h-2 bg-white rounded-full" initial={{ width: 0 }} animate={{ width: 24 }} transition={{ duration: 4, ease: "linear" }} />
+                    <motion.div
+                      className="h-2 bg-white rounded-full"
+                      initial={{ width: 0 }}
+                      animate={{ width: 24 }}
+                      transition={{ duration: 4, ease: "linear" }}
+                    />
                   </div>
                 ) : (
                   <div className="w-2 h-2 rounded-full bg-white/40" />

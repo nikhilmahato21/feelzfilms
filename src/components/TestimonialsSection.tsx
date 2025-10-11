@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-
+import blackbg from "../assets/blackbg.avif";
 
 const testimonials = [
   {
@@ -54,7 +54,7 @@ export default function TestimonialSection() {
       className="relative overflow-hidden   rounded-3xl py-12  md:py-20  text-white"
       style={{
         backgroundImage:
-          "url('https://images.unsplash.com/photo-1638376776402-9a4b75fe21bb?q=80&w=1577&auto=format&fit=crop')",
+          `url(${blackbg})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}

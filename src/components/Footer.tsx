@@ -1,4 +1,4 @@
-
+import blackbg from "../assets/blackbg.avif";
 
 export default function Footer() {
   return (
@@ -8,7 +8,7 @@ export default function Footer() {
         className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage:
-            "url('https://images.unsplash.com/photo-1638376776402-9a4b75fe21bb?q=80&w=1577&auto=format&fit=crop')",
+            `url(${blackbg})`,
         }}
       />
 
