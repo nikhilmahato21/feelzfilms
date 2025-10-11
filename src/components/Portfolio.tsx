@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import {  useRef, useState } from "react";
 
 import { motion } from "motion/react";
 import left from "../assets/left.png"; 
