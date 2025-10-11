@@ -105,6 +105,15 @@
   backface-visibility: hidden;
   perspective: 1000;
 }
+/* Smooth dot progress animation */
+@keyframes progressFill {
+  from { width: 0; }
+  to { width: 24px; }
+}
+
+.animate-progress {
+  animation: progressFill linear forwards;
+}
 
 
 @media (max-width: 640px) {

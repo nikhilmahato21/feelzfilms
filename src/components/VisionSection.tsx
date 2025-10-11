@@ -1,14 +1,13 @@
-"use client";
 
 import { FaFilm, FaBookOpen, FaTools } from "react-icons/fa";
 import { motion, useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
 // Import your images
-import blackbg from "../assets/blackbg.avif";
-import about1 from "../assets/About1.avif";
-import about2 from "../assets/About2.avif";
-import about3 from "../assets/About3.avif";
+import blackbg from "../assets/Blackbg.jpeg";
+import about1 from "../assets/About1.jpeg";
+import about2 from "../assets/About2.jpeg";
+import about3 from "../assets/About3.jpeg";
 
 export const VisionSection = () => {
   const [views, setViews] = useState(0);
@@ -119,52 +118,63 @@ At Feelz Films, creativity meets strategy — turning every idea into a brand th
         </div>
 
         {/* Right Carousel */}
-        <div className="relative w-full md:w-1/3 mx-auto flex flex-col items-center overflow-hidden h-64 md:h-80 lg:h-96">
-          <motion.div
-            className="flex w-full h-full"
-            animate={{ x: `-${current * 100}%` }}
-            transition={{ type: "tween", duration: 0.7 }}
-            drag="x"
-            dragConstraints={{ left: 0, right: 0 }}
-            dragElastic={0.2}
-            onDragEnd={(_event, info) => {
-              if (info.offset.x < -50) setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-              if (info.offset.x > 50) setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-            }}
-          >
-            {images.map((src, index) => (
-              <div key={index} className="flex-shrink-0 w-full h-full rounded-2xl overflow-hidden shadow-lg border border-white/30 bg-white/10 backdrop-blur-lg">
-                <img
-                  loading="lazy"
-                  src={src}
-                  alt={`Slide ${index + 1}`}
-                  className="w-full h-full object-cover"
-                  style={{ aspectRatio: "16/9" }}
-                />
-              </div>
-            ))}
-          </motion.div>
-
-          {/* Dots */}
-          <div className="flex justify-center mt-4 gap-3 w-full px-4">
-            {images.map((_, index) => (
-              <div key={index} className="flex items-center justify-center cursor-pointer" onClick={() => setCurrent(index)}>
-                {current === index ? (
-                  <div className="w-6 border border-white/10 rounded-full">
-                    <motion.div
-                      className="h-2 bg-white rounded-full"
-                      initial={{ width: 0 }}
-                      animate={{ width: 24 }}
-                      transition={{ duration: 4, ease: "linear" }}
-                    />
-                  </div>
-                ) : (
-                  <div className="w-2 h-2 rounded-full bg-white/40" />
-                )}
-              </div>
-            ))}
-          </div>
+        <div className="relative w-full md:w-1/3 mx-auto flex flex-col gap-3 items-center overflow-hidden h-96">
+  {/* Carousel container */}
+  <motion.div
+    className="flex w-full h-full"
+    animate={{ x: `-${current * 100}%` }}
+    transition={{ type: "tween", duration: 0.7 }}
+    drag="x"
+    dragConstraints={{ left: 0, right: 0 }}
+    dragElastic={0.2}
+    onDragEnd={(_event, info) => {
+      if (info.offset.x < -50) setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+      if (info.offset.x > 50) setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+    }}
+  >
+    {images.map((src, index) => (
+      <div
+        key={index}
+        className="flex-shrink-0 w-full h-full rounded-2xl overflow-hidden shadow-lg border border-white/30 bg-white/10 backdrop-blur-lg relative"
+      >
+        {/* Reserve image height to prevent layout shift */}
+        <div className="w-full h-full">
+          <img
+            loading="lazy"
+            src={src}
+            alt={`Slide ${index + 1}`}
+            className="w-full h-full  rounded-2xl"
+          />
         </div>
+      </div>
+    ))}
+  </motion.div>
+
+  {/* Dots (Now visible) */}
+  <div className="absolute bottom-4 flex justify-center items-center gap-3 w-full z-20">
+    {images.map((_, index) => (
+      <div
+        key={index}
+        className="flex items-center justify-center cursor-pointer"
+        onClick={() => setCurrent(index)}
+      >
+        {current === index ? (
+          <div className="w-6 border border-white/20 rounded-full">
+            <motion.div
+              className="h-2 bg-white rounded-full"
+              initial={{ width: 0 }}
+              animate={{ width: 24 }}
+              transition={{ duration: 4, ease: "linear" }}
+            />
+          </div>
+        ) : (
+          <div className="w-2 h-2 rounded-full bg-white/50" />
+        )}
+      </div>
+    ))}
+  </div>
+</div>
+
       </div>
     </section>
   );

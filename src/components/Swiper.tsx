@@ -4,8 +4,8 @@ import { Autoplay, EffectFade, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 
-import hero1 from "../assets/drive1.jpg"; 
-import hero2 from "../assets/batman.jpg"; 
+import hero1 from "../assets/Drive.jpeg"; 
+import hero2 from "../assets/Batman.jpeg"; 
 import left from "../assets/left.png"; 
 import right from "../assets/right.png"; 
 

@@ -1,4 +1,4 @@
-import blackbg from "../assets/blackbg.avif";
+import blackbg from "../assets/blackbg.jpeg";
 
 export default function Footer() {
   return (

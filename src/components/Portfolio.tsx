@@ -3,7 +3,7 @@ import {  useRef, useState } from "react";
 import { motion } from "motion/react";
 import left from "../assets/left.png"; 
 import right from "../assets/right.png"; 
-import blackbg from "../assets/blackbg.avif";
+import blackbg from "../assets/Blackbg.jpeg";
 
 const videos = [
   {

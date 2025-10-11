@@ -115,7 +115,7 @@ const VideoEditingSection = () => {
   return (
     <section
       id="services"
-      className="relative z-10 w-full bg-[url('src/assets/blackbg.avif')] bg-cover bg-center backdrop-blur-md flex flex-col items-center justify-center py-10 rounded-4xl overflow-hidden"
+      className="relative z-10 w-full bg-[url('src/assets/blackbg.jpeg')] bg-cover bg-center backdrop-blur-md flex flex-col items-center justify-center py-10 rounded-4xl overflow-hidden"
     >
       <div className="absolute inset-0 pointer-events-none bg-black/50 backdrop-blur-xl -z-10" />
 

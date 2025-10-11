@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import blackbg from "../assets/blackbg.avif";
+import blackbg from "../assets/Blackbg.jpeg";
 
 const testimonials = [
   {
@@ -28,19 +28,17 @@ const testimonials = [
   },
 ];
 const logoImages = [
-  "https://res.cloudinary.com/dynbpb9u0/image/upload/v1760086550/feelz%20films/Inkuplogoblack_vghnp7.png",
-  "https://res.cloudinary.com/dynbpb9u0/image/upload/v1760086550/feelz%20films/JHARKHAND_GOVERNMENT_n2zqwn.png",
-  "https://res.cloudinary.com/dynbpb9u0/image/upload/v1760086549/feelz%20films/8th_Milestone_logo-01_fccjph.png",
-  "https://via.placeholder.com/80x80?text=Digikala",
-  "https://via.placeholder.com/80x80?text=Citizen",
-  "https://via.placeholder.com/80x80?text=Unsplash",
-  "https://via.placeholder.com/80x80?text=BetterMotion",
-  "https://via.placeholder.com/80x80?text=Sololearn",
-  "https://res.cloudinary.com/dynbpb9u0/image/upload/v1760086549/feelz%20films/8th_Milestone_logo-01_fccjph.png",
-  "https://via.placeholder.com/80x80?text=Digikala",
-  "https://via.placeholder.com/80x80?text=Citizen",
-  "https://via.placeholder.com/80x80?text=Unsplash",
-  "https://via.placeholder.com/80x80?text=BetterMotion",
+  "https://placehold.co/400",
+  "https://placehold.co/400",
+  "https://placehold.co/400",
+  "https://placehold.co/400",
+  "https://placehold.co/400",
+  "https://placehold.co/400",
+  "https://placehold.co/400",
+  "https://placehold.co/400",
+  "https://placehold.co/400",
+  "https://placehold.co/400",
+  ,
  
 ];
 export default function TestimonialSection() {
