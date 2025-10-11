@@ -75,77 +75,22 @@ interface VideoSliderProps {
   data: VideoData[];
 }
 
-const VideoSlider = ({ title, data }: VideoSliderProps) => {
+export const VideoSlider = ({ title, data }: VideoSliderProps) => {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [players, setPlayers] = useState<any[]>([]);
-  const [currentVideo, setCurrentVideo] = useState<string | null>(null);
-  const [containerWidth, setContainerWidth] = useState(0);
 
-  const memoizedData = useMemo(() => data, [data]);
-
-  // ✅ Cache container width & update on resize
-  useEffect(() => {
-    const updateWidth = () => {
-      if (scrollRef.current) {
-        setContainerWidth(scrollRef.current.clientWidth * 0.9);
-      }
-    };
-    updateWidth();
-    window.addEventListener("resize", updateWidth);
-    return () => window.removeEventListener("resize", updateWidth);
-  }, []);
-
-  // ✅ Smooth scroll function using cached width
   const scroll = (direction: "left" | "right") => {
     if (!scrollRef.current) return;
+    const scrollAmount = scrollRef.current.clientWidth * 0.9;
     scrollRef.current.scrollBy({
-      left: direction === "left" ? -containerWidth : containerWidth,
+      left: direction === "left" ? -scrollAmount : scrollAmount,
       behavior: "smooth",
     });
   };
 
-  // ✅ Load YouTube API safely and defer initialization
-  useEffect(() => {
-    const loadYT = () => {
-      if (!(window as any).YT) {
-        const tag = document.createElement("script");
-        tag.src = "https://www.youtube.com/iframe_api";
-        document.body.appendChild(tag);
-        (window as any).onYouTubeIframeAPIReady = initPlayers;
-      } else {
-        initPlayers();
-      }
-    };
-
-    const initPlayers = () => {
-      // Avoid forced reflow by deferring initialization
-      requestAnimationFrame(() => {
-        const newPlayers = memoizedData.map((video) => {
-          return new (window as any).YT.Player(`player-${video.id}`, {
-            events: {
-              onStateChange: (e: any) => {
-                if (e.data === (window as any).YT.PlayerState.PLAYING) {
-                  setCurrentVideo(video.id);
-                }
-              },
-            },
-          });
-        });
-        setPlayers(newPlayers);
-      });
-    };
-
-    loadYT();
-  }, [memoizedData]);
-
-  // ✅ Pause all other videos when one plays
-  useEffect(() => {
-    players.forEach((player, index) => {
-      if (memoizedData[index].id !== currentVideo && player.pauseVideo) {
-        player.pauseVideo();
-      }
-    });
-  }, [currentVideo, players, memoizedData]);
+  const extractVideoId = (url: string) => {
+    const match = url.match(/embed\/([^?]+)/);
+    return match ? match[1] : "";
+  };
 
   return (
     <div className="relative w-full">
@@ -153,7 +98,7 @@ const VideoSlider = ({ title, data }: VideoSliderProps) => {
         {title}
       </h2>
 
-      {/* Navigation Buttons */}
+      {/* Navigation Arrows */}
       <button
         onClick={() => scroll("left")}
         className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black/60 hover:bg-black text-white p-2 rounded-full transition"
@@ -168,31 +113,79 @@ const VideoSlider = ({ title, data }: VideoSliderProps) => {
         <img src={right} alt="Next" className="w-6 h-6 opacity-70" />
       </button>
 
-      {/* Scrollable Videos */}
+      {/* Scrollable Thumbnails */}
       <motion.div
         ref={scrollRef}
         className="flex gap-6 overflow-x-auto scrollbar-hide scroll-smooth snap-x snap-mandatory"
         whileTap={{ cursor: "grabbing" }}
       >
-        {memoizedData.map((video) => (
-          <div
-            key={video.id}
-            className="flex-shrink-0 w-[90%] sm:w-[45%] lg:w-[30%] snap-center rounded-xl overflow-hidden bg-gray-900 hover:scale-[1.02] transition-transform"
-          >
-            <iframe
-              id={`player-${video.id}`}
-              className="w-full aspect-video"
-              src={`${video.url}&enablejsapi=1`}
+        {data.map((video) => {
+          const videoId = extractVideoId(video.url);
+          const thumbnail = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+
+          return (
+            <LazyVideoCard
+              key={video.id}
+              videoId={videoId}
               title={video.title}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
+              thumbnail={thumbnail}
             />
-          </div>
-        ))}
+          );
+        })}
       </motion.div>
     </div>
   );
 };
+
+const LazyVideoCard = ({
+  videoId,
+  title,
+  thumbnail,
+}: {
+  videoId: string;
+  title: string;
+  thumbnail: string;
+}) => {
+  const [play, setPlay] = useState(false);
+
+  return (
+    <div className="flex-shrink-0 w-[90%] sm:w-[45%] lg:w-[30%] snap-center rounded-xl overflow-hidden bg-gray-900 hover:scale-[1.02] transition-transform aspect-video relative">
+      {!play ? (
+        <>
+          <img
+            src={thumbnail}
+            alt={title}
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+          <button
+            onClick={() => setPlay(true)}
+            className="absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-16 h-16 md:w-20 md:h-20 text-white drop-shadow-xl"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </button>
+        </>
+      ) : (
+        <iframe
+          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
+          title={title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          className="w-full h-full"
+          loading="lazy"
+        />
+      )}
+    </div>
+  );
+};
+
 
 
 
