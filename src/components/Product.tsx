@@ -47,10 +47,10 @@ const Product = () => {
 
       {/* Headline */}
       <div className="w-full px-4">
-        <h1 className="text-4xl md:text-5xl font-unbounded font-bold text-white mb-4 min-h-[60px]">
+        <h1 className="text-4xl md:text-5xl font-unbounded font-bold text-white mb-4 ">
           Turn Your Business Social Media Into A
         </h1>
-        <h2 className="text-5xl md:text-6xl font-unbounded font-extrabold text-red-500 mb-6 min-h-[70px]">
+        <h2 className="text-5xl md:text-6xl font-unbounded font-extrabold text-red-500 mb-6 ">
           Cash-Flowing Asset
         </h2>
 
