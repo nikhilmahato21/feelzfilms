@@ -61,29 +61,24 @@ export const Slider = () => {
       >
         {slides.map((slide, i) => (
           <SwiperSlide key={i}>
-  <div className="relative w-full h-full flex items-center justify-center">
-    <img
-      src={slide.image}
-      alt={slide.title}
-      loading="lazy"
-      className="w-full h-full object-cover"
-    />
-    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
-
-    <div className="absolute bottom-2 md:bottom-6 lg:bottom-10 left-6 md:left-16 text-white max-w-md">
-      <h1 className="text-2xl md:text-4xl font-bold font-unbounded drop-shadow-lg">
-        {slide.title}
-      </h1>
-      <p className="mt-2 text-xs md:text-base text-white/80 font-sans drop-shadow-md">
-        {slide.subtitle}
-      </p>
-
-      
-    </div>
-  </div>
-</SwiperSlide>
-
-
+            <div className="relative w-full h-full flex items-center justify-center">
+              <img
+                src={slide.image}
+                alt={slide.title}
+                loading="lazy"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
+              <div className="absolute bottom-12 left-8 md:left-16 text-white max-w-lg">
+                <h1 className="text-3xl md:text-5xl font-bold font-unbounded">
+                  {slide.title}
+                </h1>
+                <p className="mt-3 text-sm md:text-lg text-white/80 font-sans">
+                  {slide.subtitle}
+                </p>
+              </div>
+            </div>
+          </SwiperSlide>
         ))}
       </Swiper>
 
