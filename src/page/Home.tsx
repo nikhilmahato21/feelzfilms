@@ -9,6 +9,7 @@ import TestimonialsSection from "../components/TestimonialsSection";
 
 import { VisionSection } from "../components/VisionSection";
 import VideoEditingSection from "../components/VideoEditingSection";
+import Product from "../components/Product";
 
 export const Home = () => {
   // Animation variants
@@ -47,7 +48,7 @@ export const Home = () => {
         
           <VisionSection />
         
-
+            <Product/>
         
           <VideoEditingSection />
           

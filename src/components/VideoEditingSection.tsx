@@ -131,11 +131,11 @@ const VideoEditingSection = () => {
       </div>
 
       {/* Carousel (cards remain static) */}
-      <div className="w-full ml-5 overflow-x-auto scrollbar-hide snap-x snap-mandatory flex gap-6 px-4 scroll-smooth">
+      <div className="w-full ml-5 overflow-x-auto scrollbar-hide snap-x snap-mandatory flex gap-6 px-4 py-6 scroll-smooth">
         {cards.map((card) => (
           <div
             key={card.id}
-            className="snap-start flex-shrink-0 w-[90%] sm:w-[70%] md:w-[45%] lg:w-[35%] xl:w-[30%] bg-white/10 border border-white/20 backdrop-blur-xl rounded-3xl shadow-lg hover:bg-white/20 transition-all duration-300 p-6 flex flex-col justify-between"
+            className="snap-start flex-shrink-0 w-[90%] sm:w-[70%] md:w-[45%] lg:w-[35%] xl:w-[30%] bg-white/10 border border-white/20 backdrop-blur-xl rounded-3xl shadow-lg hover:bg-white/20 hover:scale-105 transition-all duration-300 p-6 flex flex-col justify-between"
           >
             <div>
               <p className="uppercase text-sm tracking-wide text-gray-300 mb-2">{card.subtitle}</p>
