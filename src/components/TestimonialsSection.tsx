@@ -38,7 +38,6 @@ const logoImages = [
   "https://placehold.co/400",
   "https://placehold.co/400",
   "https://placehold.co/400",
-  ,
  
 ];
 export default function TestimonialSection() {
@@ -170,33 +169,19 @@ export default function TestimonialSection() {
     
   </div>
   </div> */}
-  <div className="flex"><div className="flex  space-x-16 animate-marquee">
-    {[...logoImages].map((src, idx) => (
-      
-        <img
+  <div className="overflow-hidden">
+  <div className="flex space-x-16 animate-marquee">
+    {[...logoImages, ...logoImages].map((src, idx) => (
+      <img
+        key={idx}
         loading="lazy"
-          src={src}
-          alt={`logo-${idx}`}
-          className="max-w-20  opacity-80"
-        />
-      
+        src={src}
+        alt={`logo-${idx}`}
+        className="w-20 opacity-80"
+      />
     ))}
-    
-    
-  </div><div className="flex space-x-16 animate-marquee">
-    {[...logoImages].map((src, idx) => (
-      
-        <img
-        loading="lazy"
-          src={src}
-          alt={`logo-${idx}`}
-          className="max-w-20  opacity-80"
-        />
-      
-    ))}
-    
-    
-  </div></div>
+  </div>
+</div>
   
   
 </div>

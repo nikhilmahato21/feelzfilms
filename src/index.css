@@ -83,6 +83,7 @@
   animation: marquee 20s linear infinite;
   will-change: transform;
 }
+
 @keyframes marquee-left {
   0% {
     transform: translateX(calc(-50% - 8px));
