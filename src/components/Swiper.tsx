@@ -78,24 +78,7 @@ export const Slider = () => {
         {slide.subtitle}
       </p>
 
-      {/* Buttons */}
-      <div className="flex items-center gap-4 mt-2 lg:mt-5">
-        {/* Our Services */}
-        <button className="h-10 md:h-12 px-4 md:px-6 rounded-full backdrop-blur-md bg-white/10 border border-white/20 text-white text-md md:text-lg font-semibold font-sans shadow-inner shadow-white/10 hover:bg-white/20 transition-all">
-          Our Services
-        </button>
-
-        {/* Book a Call */}
-        <button className="relative flex items-center justify-center gap-2 h-10 md:h-12 px-14 md:px-16 rounded-full backdrop-blur-md bg-white/10 border border-white/20 text-white text-md md:text-lg font-semibold font-sans shadow-inner shadow-white/10 hover:bg-white/20 transition-all">
-  {/* Green ping dot */}
-  <span className="relative flex h-3 w-3">
-    <span className="absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75 animate-ping"></span>
-    <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-  </span>
-
-  Book a Call
-</button>
-      </div>
+      
     </div>
   </div>
 </SwiperSlide>
