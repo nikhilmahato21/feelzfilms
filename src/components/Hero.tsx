@@ -11,7 +11,7 @@ export const Hero = () => {
   return (
     <main
       id="home"
-      className="relative mx-auto  max-w-7xl bg-[#212121] text-white font-sans overflow-hidden rounded-[2rem] border border-white/20 shadow-sm"
+      className="relative mx-auto max-w-[95%]  lg:max-w-7xl bg-[#212121] text-white font-sans overflow-hidden rounded-[2rem] border border-white/20 shadow-sm"
     >
       {/* ===== Background Slider ===== */}
       <Slider />

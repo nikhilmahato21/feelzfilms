@@ -55,14 +55,15 @@ export const VisionSection = () => {
     <section
       id="about"
       ref={sectionRef}
-      className="relative w-full rounded-3xl flex items-center justify-center px-3 py-8 mt-3 lg:mt-0"
+      className="relative w-full  flex items-center justify-center px-3 py-8 mt-3 lg:mt-0"
       style={{
         backgroundImage: `url(${blackbg})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-      <div className="absolute inset-0 bg-black/50 backdrop-blur-xl -z-10 rounded-3xl" />
+      {/* Black overlay + blur */}
+      <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
 
       <div className="max-w-7xl w-full flex flex-col md:flex-row items-center justify-between gap-10 bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl shadow-2xl p-8 md:p-20">
         {/* Left Content */}
@@ -118,7 +119,7 @@ At Feelz Films, creativity meets strategy — turning every idea into a brand th
         </div>
 
         {/* Right Carousel */}
-        <div className="relative w-full md:w-1/3 mx-auto flex flex-col gap-3 items-center overflow-hidden h-96">
+        <div className="relative w-full lg:w-1/3 mx-auto flex flex-col gap-3 items-center overflow-hidden h-96">
   {/* Carousel container */}
   <motion.div
     className="flex w-full h-full"

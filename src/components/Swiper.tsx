@@ -28,7 +28,7 @@ export const Slider = () => {
   ];
 
   return (
-    <div className="relative w-full h-[90vh] overflow-hidden">
+    <div className="relative w-full  overflow-hidden">
       <Swiper
         modules={[Autoplay, EffectFade, Navigation]}
         effect="fade"
