@@ -1,6 +1,6 @@
 
 
-import { PlayCircle, Target, Search } from "lucide-react";
+import { PlayCircle, Target, Search, Briefcase } from "lucide-react";
 
 const Product = () => {
   return (
@@ -12,13 +12,8 @@ const Product = () => {
       <div className="absolute inset-0 bg-black/70 backdrop-blur-xl -z-10" />
 
       {/* Top Badge */}
-      <div className="relative bg-white/10 font-sans border border-white/20 rounded-full px-6 py-2 text-xs tracking-wide text-gray-300 mb-6 mt-16 backdrop-blur-md flex items-center justify-center gap-2">
-  {/* Animated red dot */}
-  <span className="relative flex h-2 w-2">
-    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
-    <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
-  </span>
-
+     <div className="relative bg-white/10 font-sans border border-white/20 rounded-full px-6 py-2 text-xs tracking-wide text-gray-300 mb-6 mt-16 backdrop-blur-md flex items-center justify-center gap-2">
+  <Briefcase className="w-3.5 h-3.5 text-red-500" />
   <span>FOR INFO BUSINESS OWNERS OVER $10K/MO</span>
 </div>
 
