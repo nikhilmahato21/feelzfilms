@@ -1,6 +1,8 @@
-import { useRef} from "react";
+import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, Navigation } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
+import type { NavigationOptions } from "swiper/types";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import hero1 from "../assets/Drive.jpeg";
@@ -36,18 +38,20 @@ export const Slider = () => {
           prevEl: prevRef.current,
           nextEl: nextRef.current,
         }}
-        onBeforeInit={(swiper) => {
-          // Assign refs before Swiper initializes
-          // @ts-ignore
-          swiper.params.navigation.prevEl = prevRef?.current;
-          // @ts-ignore
-          swiper.params.navigation.nextEl = nextRef?.current;
+        onBeforeInit={(swiper: SwiperType) => {
+          const navigation = swiper.params.navigation;
+          if (navigation && typeof navigation !== "boolean") {
+            (navigation as NavigationOptions).prevEl = prevRef.current;
+            (navigation as NavigationOptions).nextEl = nextRef.current;
+          }
         }}
         onSwiper={(swiper) => {
-          // Re-initialize navigation after refs are available
           setTimeout(() => {
-            swiper.params.navigation.prevEl = prevRef.current;
-            swiper.params.navigation.nextEl = nextRef.current;
+            const navigation = swiper.params.navigation;
+            if (navigation && typeof navigation !== "boolean") {
+              (navigation as NavigationOptions).prevEl = prevRef.current;
+              (navigation as NavigationOptions).nextEl = nextRef.current;
+            }
             swiper.navigation.destroy();
             swiper.navigation.init();
             swiper.navigation.update();
@@ -66,7 +70,9 @@ export const Slider = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
               <div className="absolute bottom-12 left-8 md:left-16 text-white max-w-lg">
-                <h1 className="text-3xl md:text-5xl font-bold font-unbounded">{slide.title}</h1>
+                <h1 className="text-3xl md:text-5xl font-bold font-unbounded">
+                  {slide.title}
+                </h1>
                 <p className="mt-3 text-sm md:text-lg text-white/80 font-sans">
                   {slide.subtitle}
                 </p>
