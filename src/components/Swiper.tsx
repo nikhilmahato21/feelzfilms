@@ -12,7 +12,7 @@ import hero2 from "../assets/Batman.jpeg";
 export const Slider = () => {
   const prevRef = useRef<HTMLDivElement>(null);
   const nextRef = useRef<HTMLDivElement>(null);
-  const [swiperReady, setSwiperReady] = useState(true); // ready immediately
+  const [swiperReady] = useState(true); // ready immediately
 
   const slides = [
     {
