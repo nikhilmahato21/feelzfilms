@@ -119,62 +119,28 @@ At Feelz Films, creativity meets strategy — turning every idea into a brand th
         </div>
 
         {/* Right Carousel */}
-        <div className="relative w-full lg:w-1/3 mx-auto flex flex-col gap-3 items-center overflow-hidden h-96">
-  {/* Carousel container */}
+       <div className="relative w-full lg:w-1/3 mx-auto flex flex-col gap-3 items-center overflow-hidden">
   <motion.div
     className="flex w-full h-full"
     animate={{ x: `-${current * 100}%` }}
     transition={{ type: "tween", duration: 0.7 }}
-    drag="x"
-    dragConstraints={{ left: 0, right: 0 }}
-    dragElastic={0.2}
-    onDragEnd={(_event, info) => {
-      if (info.offset.x < -50) setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-      if (info.offset.x > 50) setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-    }}
   >
     {images.map((src, index) => (
       <div
         key={index}
-        className="flex-shrink-0 w-full h-full rounded-2xl overflow-hidden shadow-lg border border-white/30 bg-white/10 backdrop-blur-lg relative"
+        className="flex-shrink-0 w-full rounded-2xl overflow-hidden shadow-lg border border-white/30 bg-white/10 backdrop-blur-lg relative aspect-w-4 aspect-h-3"
       >
-        {/* Reserve image height to prevent layout shift */}
-        <div className="w-full h-full">
-          <img
-            loading="lazy"
-            src={src}
-            alt={`Slide ${index + 1}`}
-            className="w-full h-full  rounded-2xl"
-          />
-        </div>
+        <img
+          loading="lazy"
+          src={src}
+          alt={`Slide ${index + 1}`}
+          className="w-full h-full object-cover rounded-2xl"
+        />
       </div>
     ))}
   </motion.div>
-
-  {/* Dots (Now visible) */}
-  <div className="absolute bottom-4 flex justify-center items-center gap-3 w-full z-20">
-    {images.map((_, index) => (
-      <div
-        key={index}
-        className="flex items-center justify-center cursor-pointer"
-        onClick={() => setCurrent(index)}
-      >
-        {current === index ? (
-          <div className="w-6 border border-white/20 rounded-full">
-            <motion.div
-              className="h-2 bg-white rounded-full"
-              initial={{ width: 0 }}
-              animate={{ width: 24 }}
-              transition={{ duration: 4, ease: "linear" }}
-            />
-          </div>
-        ) : (
-          <div className="w-2 h-2 rounded-full bg-white/50" />
-        )}
-      </div>
-    ))}
-  </div>
 </div>
+
 
       </div>
     </section>
