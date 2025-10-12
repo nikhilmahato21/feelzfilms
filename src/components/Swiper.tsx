@@ -61,24 +61,46 @@ export const Slider = () => {
       >
         {slides.map((slide, i) => (
           <SwiperSlide key={i}>
-            <div className="relative w-full h-full flex items-center justify-center">
-              <img
-                src={slide.image}
-                alt={slide.title}
-                loading="lazy"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
-              <div className="absolute bottom-12 left-8 md:left-16 text-white max-w-lg">
-                <h1 className="text-3xl md:text-5xl font-bold font-unbounded">
-                  {slide.title}
-                </h1>
-                <p className="mt-3 text-sm md:text-lg text-white/80 font-sans">
-                  {slide.subtitle}
-                </p>
-              </div>
-            </div>
-          </SwiperSlide>
+  <div className="relative w-full h-full flex items-center justify-center">
+    <img
+      src={slide.image}
+      alt={slide.title}
+      loading="lazy"
+      className="w-full h-full object-cover"
+    />
+    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
+
+    <div className="absolute bottom-2 md:bottom-6 lg:bottom-10 left-6 md:left-16 text-white max-w-md">
+      <h1 className="text-2xl md:text-4xl font-bold font-unbounded drop-shadow-lg">
+        {slide.title}
+      </h1>
+      <p className="mt-2 text-xs md:text-base text-white/80 font-sans drop-shadow-md">
+        {slide.subtitle}
+      </p>
+
+      {/* Buttons */}
+      <div className="flex items-center gap-4 mt-2 lg:mt-5">
+        {/* Our Services */}
+        <button className="h-10 md:h-12 px-4 md:px-6 rounded-full backdrop-blur-md bg-white/10 border border-white/20 text-white text-md md:text-lg font-semibold font-sans shadow-inner shadow-white/10 hover:bg-white/20 transition-all">
+          Our Services
+        </button>
+
+        {/* Book a Call */}
+        <button className="relative flex items-center justify-center gap-2 h-10 md:h-12 px-14 md:px-16 rounded-full backdrop-blur-md bg-white/10 border border-white/20 text-white text-md md:text-lg font-semibold font-sans shadow-inner shadow-white/10 hover:bg-white/20 transition-all">
+  {/* Green ping dot */}
+  <span className="relative flex h-3 w-3">
+    <span className="absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75 animate-ping"></span>
+    <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+  </span>
+
+  Book a Call
+</button>
+      </div>
+    </div>
+  </div>
+</SwiperSlide>
+
+
         ))}
       </Swiper>
 
