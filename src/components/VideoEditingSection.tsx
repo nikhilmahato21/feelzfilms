@@ -5,10 +5,10 @@ const VideoEditingSection = () => {
     {
       id: 1,
       icon: <Film className="w-6 h-6 text-white/80" />,
-      title: "Cinematic Cuts",
+      title: "Video Editing",
       subtitle: "Storytelling in Motion",
       description:
-        "Craft emotional narratives through precise editing that connects visuals and emotions seamlessly.",
+        "From short reels to full-length videos, we take your raw footage and turn it into polished, engaging content that keeps viewers hooked.",
       buttons: [
         { label: "Explore", variant: "primary" },
         { label: "Learn More", variant: "secondary" },
@@ -17,10 +17,10 @@ const VideoEditingSection = () => {
     {
       id: 2,
       icon: <Scissors className="w-6 h-6 text-white/80" />,
-      title: "Seamless Transitions",
+      title: "Web Series Production",
       subtitle: "Visual Harmony",
       description:
-        "Create flow between scenes that feel natural and immersive with creative transition work.",
+        "We bring your story to life with binge-worthy web series, handling everything from concept to final cut.",
       buttons: [
         { label: "Try Demo", variant: "primary" },
         { label: "Preview", variant: "secondary" },
@@ -29,10 +29,10 @@ const VideoEditingSection = () => {
     {
       id: 3,
       icon: <Camera className="w-6 h-6 text-white/80" />,
-      title: "Precision Frames",
+      title: "Virtual Drama",
       subtitle: "Focus on Detail",
       description:
-        "Enhance every frame for balance, emotion, and impact — precision that defines storytelling.",
+        " Digital performances with real emotions—innovative storytelling in a virtual space.",
       buttons: [
         { label: "See Work", variant: "primary" },
         { label: "Learn", variant: "secondary" },
@@ -41,10 +41,10 @@ const VideoEditingSection = () => {
     {
       id: 4,
       icon: <PlayCircle className="w-6 h-6 text-white/80" />,
-      title: "Dynamic Motion",
+      title: "Short-Form Content",
       subtitle: "Energy in Every Frame",
       description:
-        "Infuse life into your visuals with rhythm, pacing, and compelling visual momentum.",
+        "Reels, TikToks, Shorts—we make scroll-stopping videos that connect instantly.",
       buttons: [
         { label: "Start Now", variant: "primary" },
         { label: "Watch", variant: "secondary" },
@@ -53,10 +53,10 @@ const VideoEditingSection = () => {
     {
       id: 5,
       icon: <Sparkles className="w-6 h-6 text-white/80" />,
-      title: "Color Grading",
+      title: "Documentaries & Success Stories",
       subtitle: "Mood through Tone",
       description:
-        "Bring cinematic tone and emotion to life with expert color grading and stylization.",
+        " Real stories, cinematic treatment—showcase journeys that inspire and resonate.",
       buttons: [
         { label: "Explore", variant: "primary" },
         { label: "Edit", variant: "secondary" },
@@ -65,10 +65,10 @@ const VideoEditingSection = () => {
     {
       id: 6,
       icon: <Clapperboard className="w-6 h-6 text-white/80" />,
-      title: "Scene Sync",
+      title: "Animation",
       subtitle: "Perfect Timing",
       description:
-        "Every beat aligned perfectly to audio and motion for ultimate storytelling immersion.",
+        " 2D, 3D, AI-assisted—visual storytelling that’s creative, dynamic, and memorable.",
       buttons: [
         { label: "View", variant: "primary" },
         { label: "Try Sync", variant: "secondary" },
@@ -77,10 +77,10 @@ const VideoEditingSection = () => {
     {
       id: 7,
       icon: <Video className="w-6 h-6 text-white/80" />,
-      title: "Post-Production",
+      title: "Ad Films & Reel Ads",
       subtitle: "Refine and Polish",
       description:
-        "Turn raw footage into cinematic brilliance through detailed refinement and sound design.",
+        " High-impact brand videos and ads designed to grab attention and convert.",
       buttons: [
         { label: "View Work", variant: "primary" },
         { label: "Learn More", variant: "secondary" },
@@ -89,10 +89,10 @@ const VideoEditingSection = () => {
     {
       id: 8,
       icon: <Star className="w-6 h-6 text-white/80" />,
-      title: "Creative Direction",
+      title: "UGC Content",
       subtitle: "Vision Meets Story",
       description:
-        "Shape brand visuals with creative direction that aligns identity and message powerfully.",
+        " Authentic, relatable videos that make your audience feel seen and connected.",
       buttons: [
         { label: "Start", variant: "primary" },
         { label: "Join", variant: "secondary" },
@@ -101,10 +101,58 @@ const VideoEditingSection = () => {
     {
       id: 9,
       icon: <Workflow className="w-6 h-6 text-white/80" />,
-      title: "Workflow Mastery",
+      title: "Motion Graphics",
       subtitle: "Smooth Production Flow",
       description:
-        "Streamline your video editing workflow for faster delivery without compromising quality.",
+        "Dynamic graphics to explain, entertain, and elevate your videos.",
+      buttons: [
+        { label: "Optimize", variant: "primary" },
+        { label: "Learn", variant: "secondary" },
+      ],
+    },
+    {
+      id: 9,
+      icon: <Workflow className="w-6 h-6 text-white/80" />,
+      title: "AI-Based 2D/3D Documents",
+      subtitle: "Smooth Production Flow",
+      description:
+        "Next-gen visuals for presentations, storytelling, and brand content.",
+      buttons: [
+        { label: "Optimize", variant: "primary" },
+        { label: "Learn", variant: "secondary" },
+      ],
+    },
+    {
+      id: 9,
+      icon: <Workflow className="w-6 h-6 text-white/80" />,
+      title: "Posters & Graphic Design",
+      subtitle: "Smooth Production Flow",
+      description:
+        "Clean, bold, and creative designs that leave a lasting impression.",
+      buttons: [
+        { label: "Optimize", variant: "primary" },
+        { label: "Learn", variant: "secondary" },
+      ],
+    },
+    {
+      id: 9,
+      icon: <Workflow className="w-6 h-6 text-white/80" />,
+      title: "Product Shoot",
+      subtitle: "Smooth Production Flow",
+      description:
+        " Professional photography and videography that makes your products pop.",
+      buttons: [
+        { label: "Optimize", variant: "primary" },
+        { label: "Learn", variant: "secondary" },
+      ],
+    },
+    {
+      id: 9,
+      icon: <Workflow className="w-6 h-6 text-white/80" />,
+      title: "Social Media Management & Meta Ads",
+      subtitle: "Smooth Production Flow",
+      description:
+        "We plan, post, and promote so your brand grows online while you focus on creating.",
       buttons: [
         { label: "Optimize", variant: "primary" },
         { label: "Learn", variant: "secondary" },
@@ -123,10 +171,10 @@ const VideoEditingSection = () => {
       <div className="text-center max-w-3xl mx-auto mb-12">
         <p className="uppercase tracking-wide text-gray-200/80 mb-2 text-sm font-medium">Craft</p>
         <h1 className="text-4xl md:text-5xl mx-5 font-extrabold font-unbounded text-white mb-3 drop-shadow-lg">
-          Video Editing That Moves
+          What We Do at FEELZ FILMS
         </h1>
         <p className="text-gray-300 text-lg font-sans">
-          Sharp cuts that capture emotion and narrative precision
+           If it can be filmed, animated, or designed, we’re on it. We just love making ideas happen.
         </p>
       </div>
 
@@ -135,7 +183,7 @@ const VideoEditingSection = () => {
         {cards.map((card) => (
           <div
             key={card.id}
-            className="snap-start flex-shrink-0 w-[90%] sm:w-[70%] md:w-[45%] lg:w-[35%] xl:w-[30%] bg-white/10 border border-white/20 backdrop-blur-xl rounded-3xl shadow-lg hover:bg-white/20 hover:scale-105 transition-all duration-300 p-6 flex flex-col justify-between"
+            className="snap-start flex-shrink-0 w-[90%] sm:w-[70%] md:w-[45%] lg:w-[35%] xl:w-[30%] bg-white/10 border border-white/20 backdrop-blur-xl rounded-3xl shadow-lg hover:bg-white/20 hover:scale-105 transition-all duration-300 p-6 flex flex-col  justify-center "
           >
             <div>
               <p className="uppercase text-sm tracking-wide text-gray-300 mb-2">{card.subtitle}</p>
@@ -146,7 +194,7 @@ const VideoEditingSection = () => {
               <p className="text-gray-300 mb-6">{card.description}</p>
             </div>
 
-            <div className="flex gap-4">
+            {/* <div className="flex gap-4">
               {card.buttons.map((btn, idx) => (
                 <button
                   key={idx}
@@ -159,7 +207,7 @@ const VideoEditingSection = () => {
                   {btn.label}
                 </button>
               ))}
-            </div>
+            </div> */}
           </div>
         ))}
       </div>

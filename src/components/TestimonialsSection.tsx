@@ -7,24 +7,24 @@ import blackbg from "../assets/Blackbg.jpeg";
 const testimonials = [
   {
     id: 1,
-    name: "Robin Noguier",
-    role: "Senior Interactive Designer",
+    name: "Mike Lauer",
+    role: "Enable ",
     image: "https://randomuser.me/api/portraits/men/11.jpg",
-    text: "Piqo Studio is a great icon designer. They are fast, reliable, easy to work with, and always keen to find the best concept possible for any icon. ",
+    text: "I loved the videos! We got so many strong compliments—not just from business contacts, but also from family and friends. I truly believe these are evergreen videos, and I really appreciate the amazing work you’ve done.",
   },
   {
     id: 2,
-    name: "Cecilia Tan",
-    role: "Lead Product Designer",
+    name: "Nilesh Jhanwar ",
+    role: "Senior Marketing Manager, College Vidya ",
     image: "https://randomuser.me/api/portraits/women/21.jpg",
-    text: "I enjoyed working with the team! Their custom icons perfectly matched our brand. Great communication and quick revisions.",
+    text: "Hi, I’m Nilesh. I’ve worked with FEELZ FILMS on 2–3 projects, including our web series, sponsorship, and the offline launch event. The work they did for us was amazing—they even came to our office to collaborate, and the team was super dedicated. Whatever we asked for, they committed and delivered, no matter what it took. It was a fantastic experience working with FEELZ FILMS, and I really appreciate their professionalism and commitment.",
   },
   {
     id: 3,
-    name: "Daniel Cho",
+    name: "Riya Upreti ",
     role: "Creative Director",
     image: "https://randomuser.me/api/portraits/men/32.jpg",
-    text: "They nailed the concept right from the start. Professional and talented designers who truly understand design language.",
+    text: "I must say, I showed the videos to everyone I know, and the feedback has been amazing! The editing and overall work exceeded my expectations—really a very, very good job.",
   },
 ];
 const logoImages = [

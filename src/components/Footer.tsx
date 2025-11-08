@@ -26,10 +26,10 @@ export default function Footer() {
              FEELZ FILMS
           </h3>
           <p className="text-sm leading-relaxed">
-            20619 Torrence Chapel Rd <br />
-            Suite 116 #1040 <br />
-            Cornelius, NC 28031 <br />
-            United States
+             House No-161, Near Road No-3,  <br />
+            Bosco Nagar ,singh More, Hatia, Hatia (ranchi),  <br />
+            Ranchi, Jharkhand,  <br />
+            India, 834003
           </p>
 
           <div className="mt-4 text-sm">
