@@ -1,18 +1,33 @@
 
 import { FaFilm, FaBookOpen, FaTools } from "react-icons/fa";
 import { motion, useInView } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 // Import your images
 import blackbg from "../assets/Blackbg.jpeg";
 import about1 from "../assets/About1.jpeg";
 import about2 from "../assets/About2.jpeg";
 import about3 from "../assets/About3.jpeg";
+import StatItem from "./StatItem";
 
 export const VisionSection = () => {
   const [views, setViews] = useState(0);
   const [works, setWorks] = useState(0);
   const [clients, setClients] = useState(0);
+
+  const formattedViews = useMemo(
+  () => views.toLocaleString("en-IN"),
+  [views]
+);
+const formattedWorks = useMemo(
+  () => works.toLocaleString("en-IN"),
+  [works]
+);
+
+const formattedClients = useMemo(
+  () => clients.toLocaleString("en-IN"),
+  [clients]
+);
 
   const sectionRef = useRef(null);
   const inView = useInView(sectionRef, { once: true, margin: "-20%" });
@@ -50,6 +65,14 @@ export const VisionSection = () => {
     }, 4000);
     return () => clearInterval(interval);
   }, []);
+
+  const handleDragEnd = (_: any, info: any) => {
+    if (info.offset.x < -60) {
+      setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    } else if (info.offset.x > 60) {
+      setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+    }
+  };
 
   return (
     <section
@@ -97,62 +120,42 @@ At Feelz Films, creativity meets strategy — turning every idea into a brand th
 
           {/* Counters */}
           <div className="flex gap-4 md:gap-10 pt-6 text-center">
-            <div className="flex flex-col items-center">
-              <span className="text-xl lg:text-4xl font-bold text-white">
-                <span className="inline-block min-w-[5ch]">{views.toLocaleString("en-IN")} M</span>
-              </span>
-              <span className="text-sm lg:text-md font-unbounded text-gray-300">Total Views</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <span className="text-xl lg:text-4xl font-bold text-white">
-                <span className="inline-block min-w-[5ch]">{works.toLocaleString("en-IN")} +</span>
-              </span>
-              <span className="text-sm lg:text-md font-unbounded text-gray-300">Total Projects</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <span className="text-xl lg:text-4xl font-bold text-white">
-                <span className="inline-block min-w-[5ch]">{clients.toLocaleString("en-IN")} +</span>
-              </span>
-              <span className="text-sm lg:text-md font-unbounded text-gray-300">Clients Onboard</span>
-            </div>
-          </div>
+  <StatItem value={formattedViews} suffix="M" label="Total Views" />
+  <StatItem value={formattedWorks} suffix="+" label="Total Projects" />
+  <StatItem value={formattedClients} suffix="+" label="Clients Onboard" />
+</div>
         </div>
 
         {/* Right Carousel */}
         <div className="relative w-full lg:w-1/3 mx-auto flex flex-col gap-3 items-center overflow-hidden h-96">
   {/* Carousel container */}
   <motion.div
-    className="flex w-full h-full"
-    animate={{ x: `-${current * 100}%` }}
-    transition={{ type: "tween", duration: 0.7 }}
-    drag="x"
-    dragConstraints={{ left: 0, right: 0 }}
-    dragElastic={0.2}
-    onDragEnd={(_event, info) => {
-      if (info.offset.x < -50) setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-      if (info.offset.x > 50) setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-    }}
-  >
-    {images.map((src, index) => (
-      <div
-        key={index}
-        className="flex-shrink-0 w-full h-full rounded-2xl overflow-hidden shadow-lg border border-white/30 bg-white/10 backdrop-blur-lg relative"
+        className="flex h-full will-change-transform"
+        animate={{ x: `-${current * 100}%` }}
+        transition={{ type: "tween", duration: 0.45, ease: "easeOut" }}
+        drag="x"
+        dragConstraints={{ left: 0, right: 0 }}
+        dragElastic={0}
+        onDragEnd={handleDragEnd}
       >
-        {/* Reserve image height to prevent layout shift */}
-        <div className="w-full h-full">
-          <img
-            loading="lazy"
-            src={src}
-            alt={`Slide ${index + 1}`}
-            className="w-full h-full  rounded-2xl"
-          />
-        </div>
-      </div>
-    ))}
-  </motion.div>
+        {images.map((src, index) => (
+          <div
+            key={index}
+            className="flex-shrink-0 w-full h-full rounded-2xl overflow-hidden bg-white shadow-md"
+          >
+            <img
+              src={src}
+              loading="lazy"
+              alt={`Slide ${index + 1}`}
+              className="w-full h-full object-cover"
+              draggable={false}
+            />
+          </div>
+        ))}
+      </motion.div>
 
   {/* Dots (Now visible) */}
-  <div className="absolute bottom-4 flex justify-center items-center gap-3 w-full z-20">
+  {/* <div className="absolute bottom-4 flex justify-center items-center gap-3 w-full z-20">
     {images.map((_, index) => (
       <div
         key={index}
@@ -173,7 +176,7 @@ At Feelz Films, creativity meets strategy — turning every idea into a brand th
         )}
       </div>
     ))}
-  </div>
+  </div> */}
 </div>
 
       </div>
