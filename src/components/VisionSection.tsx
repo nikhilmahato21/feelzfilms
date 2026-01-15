@@ -154,29 +154,7 @@ At Feelz Films, creativity meets strategy — turning every idea into a brand th
         ))}
       </motion.div>
 
-  {/* Dots (Now visible) */}
-  {/* <div className="absolute bottom-4 flex justify-center items-center gap-3 w-full z-20">
-    {images.map((_, index) => (
-      <div
-        key={index}
-        className="flex items-center justify-center cursor-pointer"
-        onClick={() => setCurrent(index)}
-      >
-        {current === index ? (
-          <div className="w-6 border border-white/20 rounded-full">
-            <motion.div
-              className="h-2 bg-white rounded-full"
-              initial={{ width: 0 }}
-              animate={{ width: 24 }}
-              transition={{ duration: 4, ease: "linear" }}
-            />
-          </div>
-        ) : (
-          <div className="w-2 h-2 rounded-full bg-white/50" />
-        )}
-      </div>
-    ))}
-  </div> */}
+  
 </div>
 
       </div>

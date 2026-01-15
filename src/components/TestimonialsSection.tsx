@@ -172,7 +172,7 @@ export default function TestimonialSection() {
             src={src}
             alt={`logo-${idx}`}
             loading="lazy"
-            className="h-3/4 w-3/4 object-contain grayscale opacity-75"
+            className="h-3/4 w-3/4 object-contain  opacity-75"
           />
         </div>
       ))}
