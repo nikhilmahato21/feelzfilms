@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const timeline = [
   {
@@ -172,12 +173,13 @@ export const GovtExperienceSection = () => {
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.25 }}
               className="mt-8"
             >
-              <button className="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-white/90 backdrop-blur-xl hover:bg-white/10 transition">
+                <Link to={"/gov-works"}><button className="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-white/90 backdrop-blur-xl hover:bg-white/10 transition">
                 View Government Work
                 <span className="transition-transform duration-300 group-hover:translate-x-1">
                   <ArrowUpRight size={18} />
                 </span>
-              </button>
+              </button></Link>
+              
             </motion.div>
           </motion.div>
         </div>

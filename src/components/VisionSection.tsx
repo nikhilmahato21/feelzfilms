@@ -4,7 +4,7 @@ import { useInView } from "motion/react";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 // Import your images
-import blackbg from "../assets/Blackbg.jpeg";
+const blackbg = "https://res.cloudinary.com/dynbpb9u0/image/upload/v1768542450/milad-fakurian-JTKKRK05NAM-180_tz6rej.jpg";
 import about1 from "../assets/About1.jpeg";
 import StatItem from "./StatItem";
 
