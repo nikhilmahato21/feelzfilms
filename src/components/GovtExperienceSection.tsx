@@ -83,10 +83,10 @@ export const GovtExperienceSection = () => {
 
               {/* Tag */}
               <div className="absolute bottom-6 left-6 right-6">
-                <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/40 px-4 py-2 text-sm text-white/90 backdrop-blur-xl">
-                  <span className="h-2 w-2 rounded-full bg-white/70" />
-                  Trusted for Government • Documentary • Institutional Films
-                </div>
+                <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/40 px-3 py-1.5 sm:px-4 sm:py-2 text-[10px] sm:text-sm text-white/90 backdrop-blur-xl whitespace-nowrap">
+  <span className="h-2 w-2 rounded-full bg-white/70 shrink-0" />
+  Trusted for Government • Documentary • Institutional Films
+</div>
 
                 <div className="mt-4 text-white">
                   <p className="text-xl font-unbounded font-extrabold">
