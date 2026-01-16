@@ -1,0 +1,4 @@
+export const blackbg1 = "https://res.cloudinary.com/dynbpb9u0/image/upload/v1768542450/milad-fakurian-JTKKRK05NAM-180_tz6rej.jpg";
+export const blackbg2 = "https://res.cloudinary.com/dynbpb9u0/image/upload/v1768542429/milad-fakurian-JTKKRK05NAM-unsplash_rvpxil.jpg"
+export const about1 ="https://images.unsplash.com/photo-1612544409025-e1f6a56c1152?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+export const about2 = "https://images.pexels.com/photos/8799978/pexels-photo-8799978.jpeg?_gl=1*jk5zfi*_ga*MTY3ODQ0MjA5Ni4xNzY1NjgyMzM2*_ga_8JE65Q40S6*czE3Njg1ODc0MDUkbzUkZzEkdDE3Njg1ODc0MzIkajMzJGwwJGgw"

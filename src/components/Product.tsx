@@ -1,5 +1,6 @@
 import { PlayCircle, Target, Search, Briefcase } from "lucide-react";
-import bgImage from "../assets/Blackbg.jpeg"; // adjust path as needed
+import { blackbg1, blackbg2 } from "../constants/imagesLinks";
+
 
 const Product = () => {
   const steps = [
@@ -30,7 +31,7 @@ const Product = () => {
     >
       {/* Background image */}
       <img
-        src={bgImage}
+        src={blackbg2}
         alt="Dark Background"
         className="absolute inset-0 w-full h-full object-cover -z-10"
         loading="eager"
