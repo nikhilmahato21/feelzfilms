@@ -7,6 +7,7 @@ import VideoEditingSection from "../components/VideoEditingSection";
 import Product from "../components/Product";
 
 import { motion } from "motion/react"; // or 'framer-motion'
+import { GovtExperienceSection } from "../components/GovtExperienceSection";
 
 export const Home = () => {
   const fadeUp = {
@@ -40,7 +41,7 @@ export const Home = () => {
         <motion.div {...fadeUp}>
           <Portfolio />
         </motion.div>
-        
+        <GovtExperienceSection/>
         <motion.div {...fadeUp}>
           <TestimonialsSection />
         </motion.div>

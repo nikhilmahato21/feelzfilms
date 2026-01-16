@@ -6,8 +6,6 @@ import { useEffect, useMemo, useRef, useState } from "react";
 // Import your images
 import blackbg from "../assets/Blackbg.jpeg";
 import about1 from "../assets/About1.jpeg";
-import about2 from "../assets/About2.jpeg";
-import about3 from "../assets/About3.jpeg";
 import StatItem from "./StatItem";
 
 export const VisionSection = () => {
@@ -56,23 +54,8 @@ const formattedClients = useMemo(
   }, [inView]);
 
   // Carousel
-  const images = [about1, about2, about3];
-  const [current, setCurrent] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const handleDragEnd = (_: any, info: any) => {
-    if (info.offset.x < -60) {
-      setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-    } else if (info.offset.x > 60) {
-      setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-    }
-  };
+  
+  
 
   return (
     <section
@@ -152,7 +135,7 @@ const formattedClients = useMemo(
     {/* ✅ Right Image (No Slider) */}
     <div className="relative w-full lg:w-1/3 mx-auto overflow-hidden h-96 rounded-2xl shadow-md bg-white">
       <img
-        src={images[0]}
+        src={about1}
         alt="About Feelz Films"
         className="w-full h-full object-cover"
       />

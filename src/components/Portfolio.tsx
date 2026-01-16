@@ -221,15 +221,7 @@ const Portfolio = () => {
 
        {/* Glassy Button */}
        
-        <a
-          href="https://sinhaakarsh02.myportfolio.com/" // replace with your actual portfolio link
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block px-6 py-3 text-white font-semibold text-base sm:text-lg rounded-full bg-white/20 backdrop-blur-lg border border-white/30 shadow-inner transition hover:bg-white/30 hover:text-white/90 hover:scale-105"
-        >
-          See My Portfolio
-              <span className="absolute inset-0 rounded-full shadow-[inset_0_0_10px_rgba(255,255,255,0.3)] pointer-events-none"></span>
-        </a>
+        
         
       
     </section>
