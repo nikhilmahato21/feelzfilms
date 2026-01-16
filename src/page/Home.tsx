@@ -27,13 +27,15 @@ export const Home = () => {
           <VisionSection />
         </motion.div>
         
+
+        <motion.div {...fadeUp}>
+          <VideoEditingSection />
+        </motion.div>
         <motion.div {...fadeUp}>
           <Product />
         </motion.div>
         
-        <motion.div {...fadeUp}>
-          <VideoEditingSection />
-        </motion.div>
+        
         
         <motion.div {...fadeUp}>
           <Portfolio />

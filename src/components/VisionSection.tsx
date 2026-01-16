@@ -1,6 +1,6 @@
 
 import { FaFilm, FaBookOpen, FaTools } from "react-icons/fa";
-import { motion, useInView } from "motion/react";
+import { useInView } from "motion/react";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 // Import your images
@@ -76,88 +76,90 @@ const formattedClients = useMemo(
 
   return (
     <section
-      id="about"
-      ref={sectionRef}
-      className="relative w-full  flex items-center justify-center px-3 py-8 mt-3 lg:mt-0"
-      style={{
-        backgroundImage: `url(${blackbg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      {/* Black overlay + blur */}
-      <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
+  id="about"
+  ref={sectionRef}
+  className="relative w-full flex items-center justify-center px-3 py-5 lg:py-10 mt-1 lg:mt-0"
+  style={{
+    backgroundImage: `url(${blackbg})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
+>
+  {/* Black overlay + blur */}
+  <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
 
-      <div className="max-w-7xl w-full flex flex-col md:flex-row items-center justify-between gap-10 bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl shadow-2xl p-8 md:p-20">
-        {/* Left Content */}
-        <div className="text-white space-y-6 md:w-2/3">
-          <p className="uppercase tracking-wider text-sm font-semibold opacity-90">About Us</p>
-          <h2 className="text-4xl md:text-4xl font-extrabold font-unbounded leading-tight">
-            We are Feelz Films
-          </h2>
-          <p className="text-base text-gray-200 font-sans max-w-2xl">
-            Feelz Films Production House Pvt. Ltd. is one of India’s leading content agencies, delivering powerful strategies and high-quality video production and editing services.
+  <div className="max-w-7xl w-full flex flex-col md:flex-row items-center justify-between gap-10 bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl shadow-2xl p-8 md:p-20">
+    
+    {/* Left Content */}
+    <div className="text-white space-y-6 md:w-2/3">
+      <p className="uppercase tracking-wider text-sm font-semibold opacity-90">
+        About Us
+      </p>
 
-We help brands, creators, and entrepreneurs build their personal and digital presence through storytelling that inspires and connects.
+      <h2 className="text-4xl md:text-4xl font-extrabold font-unbounded leading-tight">
+        We are Feelz Films
+      </h2>
 
-At Feelz Films, creativity meets strategy — turning every idea into a brand that stands out.
-          </p>
+      <p className="text-base text-gray-200 font-sans max-w-2xl">
+        Feelz Films Production House Pvt. Ltd. is one of India’s leading content agencies,
+        delivering powerful strategies and high-quality video production and editing services.
+        <br />
+        <br />
+        We help brands, creators, and entrepreneurs build their personal and digital presence
+        through storytelling that inspires and connects.
+        <br />
+        <br />
+        At Feelz Films, creativity meets strategy — turning every idea into a brand that stands out.
+      </p>
 
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <FaFilm className="text-red-400" />
-              <span>Precision in every frame</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <FaBookOpen className="text-red-400" />
-              <span>Creative storytelling</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <FaTools className="text-red-400" />
-              <span>Technical mastery</span>
-            </div>
-          </div>
-
-          {/* Counters */}
-          <div className="flex gap-4 md:gap-10 pt-6 text-center">
-  <StatItem value={formattedViews} suffix="M" label="Total Views" />
-  <StatItem value={formattedWorks} suffix="+" label="Total Projects" />
-  <StatItem value={formattedClients} suffix="+" label="Clients Onboard" />
-</div>
+      {/* 3 Points */}
+      <div className="space-y-3">
+        <div className="flex items-center gap-3">
+          <FaFilm className="text-red-400" />
+          <span>Precision in every frame</span>
         </div>
 
-        {/* Right Carousel */}
-        <div className="relative w-full lg:w-1/3 mx-auto flex flex-col gap-3 items-center overflow-hidden h-96">
-  {/* Carousel container */}
-  <motion.div
-        className="flex h-full will-change-transform"
-        animate={{ x: `-${current * 100}%` }}
-        transition={{ type: "tween", duration: 0.45, ease: "easeOut" }}
-        drag="x"
-        dragConstraints={{ left: 0, right: 0 }}
-        dragElastic={0}
-        onDragEnd={handleDragEnd}
-      >
-        {images.map((src, index) => (
-          <div
-            key={index}
-            className="flex-shrink-0 w-full h-full rounded-2xl overflow-hidden bg-white shadow-md"
-          >
-            <img
-              src={src}
-              loading="lazy"
-              alt={`Slide ${index + 1}`}
-              className="w-full h-full object-cover"
-              draggable={false}
-            />
-          </div>
-        ))}
-      </motion.div>
+        <div className="flex items-center gap-3">
+          <FaBookOpen className="text-red-400" />
+          <span>Creative storytelling</span>
+        </div>
 
-  
-</div>
-
+        <div className="flex items-center gap-3">
+          <FaTools className="text-red-400" />
+          <span>Technical mastery</span>
+        </div>
       </div>
-    </section>
+
+      {/* ✅ Download Button */}
+      <div className="pt-4">
+        <a
+          href="/FeelzFilms-Brochure.pdf"
+          download
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-red-500 hover:bg-red-600 transition font-semibold shadow-lg"
+        >
+          Download Brochure
+        </a>
+      </div>
+
+      {/* Counters */}
+      <div className="flex gap-4 md:gap-10 pt-6 text-center">
+        <StatItem value={formattedViews} suffix="M" label="Total Views" />
+        <StatItem value={formattedWorks} suffix="+" label="Total Projects" />
+        <StatItem value={formattedClients} suffix="+" label="Clients Onboard" />
+      </div>
+    </div>
+
+    {/* ✅ Right Image (No Slider) */}
+    <div className="relative w-full lg:w-1/3 mx-auto overflow-hidden h-96 rounded-2xl shadow-md bg-white">
+      <img
+        src={images[0]}
+        alt="About Feelz Films"
+        className="w-full h-full object-cover"
+      />
+    </div>
+
+  </div>
+</section>
+
   );
 };
