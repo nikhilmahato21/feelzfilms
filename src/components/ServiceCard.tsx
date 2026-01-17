@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { type LucideIcon } from "lucide-react";
 import GlassCard from "./GlassCard";
 
-
 interface ServiceCardProps {
   icon: LucideIcon;
   title: string;
@@ -19,8 +18,8 @@ const ServiceCard = ({
   delay = 0,
 }: ServiceCardProps) => {
   return (
-    <GlassCard delay={delay} className="group overflow-hidden">
-      <div className="relative h-64 overflow-hidden">
+    <GlassCard delay={delay} className="group overflow-hidden rounded-lg">
+      <div className="relative h-64 overflow-hidden rounded-xl">
         <motion.img
           src={image}
           alt={title}
@@ -31,16 +30,16 @@ const ServiceCard = ({
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.4, delay: delay + 0.2 }}
-          className="absolute top-4 right-4 p-3 rounded-xl bg-primary/20 backdrop-blur-sm"
+          className="absolute top-4 right-4 p-3 rounded-xl bg-primary backdrop-blur-sm"
         >
-          <Icon className="w-6 h-6 text-primary" />
+          <Icon className="w-6 h-6 text-green-950 " />
         </motion.div>
       </div>
-      <div className="p-6">
-        <h3 className="font-display text-xl font-semibold text-foreground mb-2">
+      <div className="py-2">
+        <h3 className="font-display text-xl font-semibold text-[#1B3126] group-hover:text-[#28966B] mb-2">
           {title}
         </h3>
-        <p className="text-muted-foreground text-sm leading-relaxed">
+        <p className="text-[#628473] font-sans text-sm leading-relaxed">
           {description}
         </p>
       </div>

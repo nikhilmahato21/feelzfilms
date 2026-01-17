@@ -18,11 +18,43 @@
   font-weight: 400;
   src: url('/public/fonts/ Unbounded/unbounded-v12-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
+:root {
+  --glass-bg: 0 0% 100% / 0.7;
+  --glass-border: 152 60% 35% / 0.2;
+  --glass-blur: 20px;
+  --primary: 152 60% 35%;
+}
+.bg-primary-10 {
+  background-color: hsl(var(--primary) / 0.1);
+}
+.bg-primary-20 {
+  background-color: hsl(var(--primary) / 0.2);
+}
+.border-primary-20 {
+  border-color: hsl(var(--primary) / 0.2);
+}
+.glass-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem; /* rounded-2xl */
+  background: hsl(var(--glass-bg));
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid hsl(var(--glass-border));
+  box-shadow: 0 8px 32px hsl(150 30% 15% / 0.1);
+}
 @theme {
   --font-sans: "DM Sans", sans-serif;
   --font-unbounded: "Unbounded", cursive;
+  
+}
+.bg-primary{
+  background-color: hsl(152 60% 35%/0.2);
 }
 
+.bg-muted{
+  background-color: hsl(140 10% 94%/0.1);
+}
 
 @keyframes fadeIn {
   from {
@@ -136,4 +168,5 @@
     transform: translate3d(-50%, 0, 0);
   }
 }
+
 

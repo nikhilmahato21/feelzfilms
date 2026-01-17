@@ -1,43 +1,46 @@
 import { motion } from "framer-motion";
 
-interface SectionHeaderProps {
+type Props = {
   tag: string;
   title: string;
-  description?: string;
-  centered?: boolean;
-}
+  description: string;
+};
 
-const SectionHeader = ({
-  tag,
-  title,
-  description,
-  centered = true,
-}: SectionHeaderProps) => {
+const SectionHeader = ({ tag, title, description }: Props) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.6 }}
-      className={`mb-12 ${centered ? "text-center" : ""}`}
-    >
+    <div className="text-center max-w-4xl mx-auto">
       <motion.span
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.4 }}
-        className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase bg-primary/10 text-primary border border-primary/20 mb-4"
+        initial={{ opacity: 0, y: 14 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="inline-flex items-center justify-center px-6 py-2 rounded-full
+                   text-sm font-semibold tracking-widest uppercase
+                bg-[#E3EEE7] text-[#238F5D] border border-primary/20"
       >
         {tag}
       </motion.span>
-      <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+
+      <motion.h2
+        initial={{ opacity: 0, y: 18 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.1 }}
+        className="mt-6 text-4xl md:text-6xl font-extrabold font-unbounded text-[#1B3126] tracking-tight"
+      >
         {title}
-      </h2>
-      {description && (
-        <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-          {description}
-        </p>
-      )}
-    </motion.div>
+      </motion.h2>
+
+      <motion.p
+        initial={{ opacity: 0, y: 18 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="mt-4 text-lg md:text-xl text-[#628473] font-sans leading-relaxed max-w-3xl mx-auto"
+      >
+        {description}
+      </motion.p>
+    </div>
   );
 };
 
