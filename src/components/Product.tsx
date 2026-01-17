@@ -1,5 +1,5 @@
 import { PlayCircle, Target, Search, Briefcase } from "lucide-react";
-import { blackbg1, blackbg2 } from "../constants/imagesLinks";
+import {  blackbg2 } from "../constants/imagesLinks";
 
 
 const Product = () => {
