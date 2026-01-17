@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { FaFilm, FaBookOpen, FaTools } from "react-icons/fa";
-import { ArrowUpRight } from "lucide-react";
+
 
 import { about1, about2, blackbg1 } from "../constants/imagesLinks";
 
