@@ -90,7 +90,7 @@ const GovernmentServices = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className="absolute -bottom-8 left-0 lg:left-7 bg-white/80 backdrop-blur-md border border-black/10 shadow-xl rounded-2xl px-6 py-4 w-[290px]"
+          className="absolute -bottom-7 left-5 lg:left-5 bg-white/80 backdrop-blur-md border border-black/10 shadow-xl rounded-2xl px-6 py-4 w-[290px]"
         >
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
@@ -207,7 +207,7 @@ const GovernmentServices = () => {
 
 
       {/* Folders & Booklets Section */}
-      <section className="relative py-24">
+      <section className="relative py-24 bg-[#F6F9F7] ">
   <div className="max-w-7xl mx-auto px-6 lg:px-10">
     <div className="mb-14">
       <SectionHeader
@@ -280,7 +280,7 @@ const GovernmentServices = () => {
 
 
       {/* Gallery Section */}
-      <section className="py-24 relative bg-muted/30">
+      <section className="py-24 relative bg-muted">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <SectionHeader
             tag="Our Work"
@@ -293,47 +293,64 @@ const GovernmentServices = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 relative">
-        <div className="absolute inset-0 hero-gradient" />
-        <div className="section-container relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="glass-card max-w-3xl mx-auto p-12 rounded-3xl"
-          >
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Ready to Start Your Project?
-            </h2>
-            <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-              Let us help you create impactful content that serves your agency and
-              the public effectively.
-            </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 rounded-xl font-semibold text-primary-foreground bg-primary hover:bg-primary/90 transition-all duration-300 glow-effect"
-            >
-              Get in Touch
-            </motion.button>
-          </motion.div>
-        </div>
-      </section>
+      <section className="relative py-24 bg-[#F6F9F7] overflow-hidden">
+  {/* Soft background glow */}
+  <div className="absolute inset-0">
+    <div className="absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-500/10 blur-[120px]" />
+  </div>
+
+  <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="max-w-4xl mx-auto text-center"
+    >
+      {/* Card */}
+      <div className="rounded-[28px] bg-white/80 backdrop-blur-xl border border-emerald-900/10 shadow-[0_18px_60px_rgba(16,24,40,0.08)] px-8 md:px-14 py-14">
+        <h2 className="font-unbounded text-2xl md:text-4xl font-bold text-emerald-950 tracking-tight">
+          Ready to Start Your Project?
+        </h2>
+
+        <p className="mt-5 font-sans text-base md:text-lg text-emerald-900/60 max-w-2xl mx-auto leading-relaxed">
+          Let us help you create impactful content that serves your agency and
+          the public effectively.
+        </p>
+
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="mt-10 font-sans inline-flex items-center justify-center px-10 py-4 rounded-2xl font-semibold text-white bg-emerald-600 hover:bg-emerald-700 shadow-[0_14px_30px_rgba(16,185,129,0.25)] transition-all duration-300"
+        >
+          Get in Touch
+        </motion.button>
+      </div>
+    </motion.div>
+  </div>
+</section>
+
 
       {/* Footer */}
-      <footer className="py-12 border-t border-border">
-        <div className="section-container">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              
-              <span className="font-display font-bold text-lg">FeelzFilms</span>
-            </div>
-            <p className="text-muted-foreground text-sm">
-              © 2024 FeelzFims Productions. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <footer className="bg-[#F6F9F7] py-10 border-t border-emerald-900/10">
+  <div className="max-w-7xl mx-auto px-6 lg:px-10">
+    <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+      {/* Left Logo */}
+      <div className="flex items-center gap-3">
+        
+
+        <span className="font-display font-bold font-unbounded text-xl text-emerald-950">
+          FEELZ FILMS
+        </span>
+      </div>
+
+      {/* Right Text */}
+      <p className="text-sm text-emerald-900/60">
+        © 2026 FeelzFilms Productions. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
     </div>
   );
 };
@@ -370,7 +387,7 @@ const galleryImages = [
   { src: documentary2, alt: "Aerial city shot", category: "Documentary" },
   { src: foldersBooklets, alt: "Publication collection", category: "Publications" },
   { src: documentary1, alt: "Interview setup", category: "Documentary" },
-  { src: graphicDesign, alt: "Design materials", category: "Graphic Design" },
+  
 ];
 
 export default GovernmentServices;
