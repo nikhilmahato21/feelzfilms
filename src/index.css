@@ -31,9 +31,14 @@ html {
   box-shadow: 0 8px 32px hsl(150 30% 15% / 0.1);
 }
 @theme {
-  --font-sans: "DM Sans", sans-serif;
-  --font-unbounded: "Unbounded", cursive;
-  
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-unbounded: "Unbounded", ui-sans-serif, system-ui, sans-serif;
+}
+@utility font-unbounded {
+  font-family: var(--font-unbounded);
+}
+@utility font-sans {
+  font-family: var(--font-sans);
 }
 .bg-primary{
   background-color: hsl(152 60% 35%/0.2);
