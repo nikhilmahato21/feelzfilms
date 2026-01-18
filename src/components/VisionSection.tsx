@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { FaFilm, FaBookOpen, FaTools } from "react-icons/fa";
 
 
-import { about1, about2, blackbg1 } from "../constants/imagesLinks";
+import { about1, about2} from "../constants/imagesLinks";
 
 
 const boxes = [
