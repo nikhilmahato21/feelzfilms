@@ -3,33 +3,33 @@ import {  useRef, useState } from "react";
 import { motion } from "motion/react";
 import left from "../assets/left.png"; 
 import right from "../assets/right.png"; 
-import blackbg from "../assets/Blackbg.jpeg";
+
 
 const videos = [
   {
     id: "1",
     title: "He Bet Everything on Coffee — And Won!",
-    url: "https://www.youtube.com/embed/Bx1HUP-4itQ?si=uK6frx09SCwJu2_p",
+    url: "https://www.youtube.com/embed/WI7sPXHIqy4?si=PjFXzbHtKGsx5Hfz",
   },
   {
     id: "2",
     title: "Murder. Markets. Mindset.",
-    url: "https://www.youtube.com/embed/Bx1HUP-4itQ?si=uK6frx09SCwJu2_p",
+    url: "https://www.youtube.com/embed/SfqjdP82Vr8?si=IkcUXpJlVu12t_KH",
   },
   {
     id: "3",
     title: "Left 15LPA, Made ₹1CR from THIS",
-    url: "https://www.youtube.com/embed/Bx1HUP-4itQ?si=uK6frx09SCwJu2_p",
+    url: "https://www.youtube.com/embed/KVU0Gn5-OBA?si=l9LMVTGFwiAAFdgF",
   },
   {
     id: "4",
     title: "Why Most Startups Fail",
-    url: "https://www.youtube.com/embed/Bx1HUP-4itQ?si=uK6frx09SCwJu2_p",
+    url: "https://www.youtube.com/embed/iP0GwDjzye4?si=B-1yxQDCf_4jE59p",
   },
   {
     id: "5",
     title: "The Hidden Billion-Dollar Industry",
-    url: "https://www.youtube.com/embed/Bx1HUP-4itQ?si=uK6frx09SCwJu2_p",
+    url: "https://www.youtube.com/embed/-4CNHmgefgw?si=6hFV_XcZ8ZFpaBDh",
   },
 ];
 
@@ -37,27 +37,28 @@ const shorts = [
   {
     id: "1",
     title: "You think it’s a $300 expense",
-    url: "https://www.youtube.com/embed/k2LjD6KFJkY?si=q30F2OqAy9Qhn-L2",
+    url: "https://www.youtube.com/embed/yxwaQeMrP1g?si=ls5RhkJK9MlSC4OZ",
   },
+  
   {
     id: "2",
-    title: "Product Manager Moments",
-    url: "https://www.youtube.com/embed/k2LjD6KFJkY?si=q30F2OqAy9Qhn-L2",
+    title: "Par hum logo ko entry kaise milegi?",
+    url: "https://www.youtube.com/embed/YbwufzZfCfY?si=XPjgLxvZSK",
   },
   {
     id: "3",
-    title: "Par hum logo ko entry kaise milegi?",
-    url: "https://www.youtube.com/embed/k2LjD6KFJkY?si=q30F2OqAy9Qhn-L2",
+    title: "Product Manager Moments",
+    url: "https://www.youtube.com/embed/6BOU82p9o94?si=HfmPwl-nLericE6w",
   },
   {
     id: "4",
     title: "Startup Reality Check",
-    url: "https://www.youtube.com/embed/k2LjD6KFJkY?si=q30F2OqAy9Qhn-L2",
+    url: "https://www.youtube.com/embed/FJv0VGTEOac?si=0XXrxJZG7ZQ42BP-",
   },
   {
     id: "5",
     title: "How To Think Like a Founder",
-    url: "https://www.youtube.com/embed/k2LjD6KFJkY?si=q30F2OqAy9Qhn-L2",
+    url: "https://www.youtube.com/embed/Xg3djpHCLeY?si=J740as57tg6I0Fo0",
   },
 ];
 
@@ -196,16 +197,13 @@ const Portfolio = () => {
     <section
     id="portfolio"
       className="relative w-full flex flex-col justify-center items-center text-white px-4 md:px-10 py-20 space-y-16 bg-cover bg-center"
-      style={{
-        backgroundImage:
-          `url(${blackbg})`, 
-      }}
+      
     >
        {/* Overlay */}
-      <div className="absolute h-full inset-0 bg-black/70 backdrop-blur-xl"></div>
+      {/* <div className="absolute h-full inset-0 bg-black/70 backdrop-blur-xl"></div> */}
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto text-center ">
+      <div className="relative  max-w-5xl mx-auto text-center ">
         <p className="text-sm uppercase tracking-widest text-white/70">
           Works
         </p>

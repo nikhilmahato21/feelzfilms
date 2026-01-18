@@ -39,7 +39,7 @@ export const Navbar: React.FC<NavbarProps> = ({ menuOpen, setMenuOpen, dropdownR
   return (
     <nav
       ref={navRef}
-      className="fixed top-3 md:top-10 inset-x-0 mx-auto px-2 md:px-12 flex items-center justify-between py-1 md:py-3 bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-sm max-w-[180px] md:max-w-xl lg:max-w-4xl z-50 hover:scale-105 transition-all duration-150"
+      className="fixed top-3 md:top-10 inset-x-0 mx-auto px-2 md:px-12 flex items-center justify-between py-1 md:py-3 bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-sm max-w-[180px] md:max-w-xl lg:max-w-4xl z-100 hover:scale-105 transition-all duration-150"
     >
       <div className="font-unbounded text-sm md:text-lg font-bold tracking-wide">
         FEELZ FILMS

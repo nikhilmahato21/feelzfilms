@@ -2,28 +2,28 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import blackbg from "../assets/Blackbg.jpeg";
+
 
 const testimonials = [
   {
     id: 1,
     name: "Mike Lauer",
     role: "Enable ",
-    image: "https://randomuser.me/api/portraits/men/11.jpg",
+    image: "https://res.cloudinary.com/dynbpb9u0/image/upload/v1768704273/WhatsApp_Image_2026-01-18_at_00.15.05_nwykmm.jpg",
     text: "I loved the videos! We got so many strong compliments—not just from business contacts, but also from family and friends. I truly believe these are evergreen videos, and I really appreciate the amazing work you’ve done.",
   },
   {
     id: 2,
     name: "Nilesh Jhanwar ",
     role: "Senior Marketing Manager, College Vidya ",
-    image: "https://randomuser.me/api/portraits/women/21.jpg",
+    image: "https://res.cloudinary.com/dynbpb9u0/image/upload/v1768704273/WhatsApp_Image_2026-01-18_at_00.15.38_bvxtm3.jpg",
     text: "Hi, I’m Nilesh. I’ve worked with FEELZ FILMS on 2–3 projects, including our web series, sponsorship, and the offline launch event. The work they did for us was amazing—they even came to our office to collaborate, and the team was super dedicated. Whatever we asked for, they committed and delivered, no matter what it took. It was a fantastic experience working with FEELZ FILMS, and I really appreciate their professionalism and commitment.",
   },
   {
     id: 3,
     name: "Riya Upreti ",
     role: "Creative Director",
-    image: "https://randomuser.me/api/portraits/men/32.jpg",
+    image: "https://res.cloudinary.com/dynbpb9u0/image/upload/v1768704273/WhatsApp_Image_2026-01-18_at_00.17.04_to1m9v.jpg",
     text: "I must say, I showed the videos to everyone I know, and the feedback has been amazing! The editing and overall work exceeded my expectations—really a very, very good job.",
   },
 ];
@@ -74,18 +74,13 @@ export default function TestimonialSection() {
   return (
     <section
       className="relative overflow-hidden   rounded-3xl py-12  md:py-20  text-white"
-      style={{
-        backgroundImage:
-          `url(${blackbg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+      
     >
       {/* Black overlay + blur */}
-      <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
+      {/* <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" /> */}
 
       {/* Content wrapper */}
-      <div className="relative  px-5 z-10 max-w-7xl mx-auto w-full flex flex-col md:flex-row items-start md:items-center gap-8">
+      <div className="relative  px-5 max-w-7xl mx-auto w-full flex flex-col md:flex-row items-start md:items-center gap-8">
         {/* LEFT: heading + arrows */}
         <div className="w-full md:w-1/2 flex flex-col justify-center">
           <div>
@@ -117,7 +112,7 @@ export default function TestimonialSection() {
         </div>
 
         {/* RIGHT: testimonial card area */}
-        <div className="relative z-10 w-full md:w-1/2 flex justify-center md:justify-end">
+        <div className="relative  w-full md:w-1/2 flex justify-center md:justify-end">
           <div className="w-full max-w-lg">
             <AnimatePresence mode="wait">
               <motion.div

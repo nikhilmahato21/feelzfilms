@@ -27,18 +27,12 @@ const Product = () => {
   return (
     <section
       id="product"
-      className="relative z-10 w-full flex flex-col items-center justify-center text-center overflow-hidden font-sans"
+      className="relative  w-full flex flex-col items-center justify-center text-center overflow-hidden font-sans"
+      
     >
-      {/* Background image */}
-      <img
-        src={blackbg2}
-        alt="Dark Background"
-        className="absolute inset-0 w-full h-full object-cover -z-10"
-        loading="eager"
-        fetchPriority="high"
-      />
+      
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/80 backdrop-blur-sm -z-10" />
+      {/* <div className="absolute inset-0 bg-black/80 backdrop-blur-sm -z-10" /> */}
 
       {/* Top Badge */}
       <div className="relative bg-white/10 border border-white/20 rounded-full px-6 py-2 text-xs tracking-wide text-gray-300 mb-6 mt-16 backdrop-blur-md flex items-center justify-center gap-2">

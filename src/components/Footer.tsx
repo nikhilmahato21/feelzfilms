@@ -6,14 +6,11 @@ export default function Footer() {
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage:
-            `url(${blackbg})`,
-        }}
+        
       />
 
       {/* Glass Blur Overlay */}
-      <div className="absolute inset-0 bg-black/70 backdrop-blur-xl" />
+      <div className="absolute inset-0  " />
 
       {/* Content */}
       <div
@@ -33,13 +30,10 @@ export default function Footer() {
           </p>
 
           <div className="mt-4 text-sm">
-            <p>
-              <span className="font-medium text-white">Phone:</span>{" "}
-              1-800-201-1019
-            </p>
+            
             <p>
               <span className="font-medium text-white">Email:</span>{" "}
-              support@skipmatrix.com
+              connect@feelzfilms.com
             </p>
           </div>
         </div>

@@ -8,7 +8,6 @@ import Product from "../components/Product";
 
 import { motion } from "motion/react"; // or 'framer-motion'
 import { GovtExperienceSection } from "../components/GovtExperienceSection";
-import { blackbg1 } from "../constants/imagesLinks";
 
 export const Home = () => {
   const fadeUp = {
@@ -18,48 +17,35 @@ export const Home = () => {
   };
 
   return (
-    <main className="relative min-h-screen text-white font-sans overflow-hidden">
-      {/* ✅ Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage:
-           `url(${blackbg1})`,
-        }}
-      />
-
-      {/* ✅ Faded Black Overlay */}
-      <div className="absolute inset-0 bg-black/80" />
-
-      {/* ✅ Page Content */}
-      <div className="relative z-10 md:max-w-[100rem] xl:max-w-[150rem] mx-auto py-2 md:py-8 space-y-2 md:space-y-0">
-        <Hero />
-
+    <main className=" bg-black text-white font-sans" >
+      <div className="md:max-w-[100rem] xl:max-w-[150rem] mx-auto ">
+        
+        
+          <Hero />
+  
         <motion.div {...fadeUp}>
           <VisionSection />
         </motion.div>
-
+      
         <motion.div {...fadeUp}>
           <VideoEditingSection />
         </motion.div>
-
         <motion.div {...fadeUp}>
           <Product />
         </motion.div>
-
+        
         <motion.div {...fadeUp}>
           <Portfolio />
         </motion.div>
-
-        <GovtExperienceSection />
-
+        <GovtExperienceSection/>
         <motion.div {...fadeUp}>
           <TestimonialsSection />
         </motion.div>
-
+        
         <motion.div {...fadeUp}>
           <Footer />
         </motion.div>
+        
       </div>
     </main>
   );

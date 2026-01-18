@@ -5,24 +5,24 @@ import { Link } from "react-router-dom";
 const timeline = [
   {
     year: "2013",
-    title: "Started Visual Storytelling",
-    desc: "Branded films, commercials, and early documentary work.",
+    title: "Rural Development Films & Stories",
+    desc: "Authentic films documenting rural initiatives, livelihoods, and grassroots impact across villages.",
   },
   {
     year: "2016",
-    title: "Expanded Production Team",
-    desc: "Built our in-house direction + post production pipeline.",
+    title: "Success Story Films",
+    desc: "Cinematic success stories highlighting beneficiaries, outcomes, and program effectiveness.",
   },
   {
     year: "2018",
-    title: "Government & Institutional Films",
-    desc: "Documentaries, awareness campaigns, and official coverage.",
+    title: "Community-Based Awareness Content",
+    desc: "Localized awareness films for health, sanitation, agriculture, and social welfare campaigns.",
     featured: true,
   },
   {
     year: "2023",
-    title: "Recognized for Impact Stories",
-    desc: "Awarded and trusted for large-scale cinematic narratives.",
+    title: "Event Videography & Photography",
+    desc: "Professional documentation of government events, launches, training, and field activities.",
   },
 ];
 
@@ -30,7 +30,7 @@ export const GovtExperienceSection = () => {
   return (
     <section
       id="government-work"
-      className="relative w-full py-28 overflow-hidden bg-[#0b0b0b]"
+      className="relative w-full py-28 overflow-hidden "
     >
       {/* Background glow */}
       <div className="absolute inset-0 -z-10">
@@ -136,7 +136,7 @@ export const GovtExperienceSection = () => {
                     <div className="absolute -top-20 -left-20 h-48 w-48 rounded-full bg-white/10 blur-3xl" />
                   </div>
 
-                  <p className="text-sm font-semibold text-white/60 tracking-wide">
+                  <p className="text-sm hidden font-semibold text-white/60 tracking-wide">
                     {t.year}
                   </p>
 
