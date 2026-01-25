@@ -26,8 +26,7 @@ export const Hero = () => {
 />
 
 
-    {/* Dark Overlay */}
-    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
+   
 
     {/* Text + Buttons */}
     <div className="absolute bottom-3 md:bottom-6 lg:bottom-10 left-4 md:left-10 lg:left-16 text-white max-w-[90%] md:max-w-md z-20">

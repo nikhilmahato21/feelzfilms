@@ -36,7 +36,7 @@ export const VisionSection = () => {
       
     >
     
-      {/* <div className="absolute inset-0 bg-black/80 backdrop-blur-sm -z-10" /> */}
+   
 
       <div className="mx-auto max-w-[95%] lg:max-w-8xl">
         {/* ✅ Heading */}

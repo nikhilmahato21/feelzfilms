@@ -17,36 +17,41 @@ export const Home = () => {
   };
 
   return (
-    <main className=" bg-black text-white font-sans" >
-      <div className="md:max-w-[100rem] xl:max-w-[150rem] mx-auto ">
-        
-        
-          <Hero />
-  
-        <motion.div {...fadeUp}>
-          <VisionSection />
-        </motion.div>
-      
-        <motion.div {...fadeUp}>
-          <VideoEditingSection />
-        </motion.div>
-        <motion.div {...fadeUp}>
-          <Product />
-        </motion.div>
-        
-        <motion.div {...fadeUp}>
-          <Portfolio />
-        </motion.div>
-        <GovtExperienceSection/>
-        <motion.div {...fadeUp}>
-          <TestimonialsSection />
-        </motion.div>
-        
-        <motion.div {...fadeUp}>
-          <Footer />
-        </motion.div>
-        
-      </div>
-    </main>
+    <main
+  className="
+    text-white font-sans
+    bg-[url('/src/assets/blob-scene-haikeii.svg')]
+    bg-cover bg-no-repeat bg-center
+  "
+>
+  <div className="md:max-w-[100rem] xl:max-w-[150rem] mx-auto">
+    <Hero />
+
+    <VisionSection />
+
+    <motion.div {...fadeUp}>
+      <VideoEditingSection />
+    </motion.div>
+
+    <motion.div {...fadeUp}>
+      <Product />
+    </motion.div>
+
+    <motion.div {...fadeUp}>
+      <Portfolio />
+    </motion.div>
+
+    <GovtExperienceSection />
+
+    <motion.div {...fadeUp}>
+      <TestimonialsSection />
+    </motion.div>
+
+    <motion.div {...fadeUp}>
+      <Footer />
+    </motion.div>
+  </div>
+</main>
+
   );
 };

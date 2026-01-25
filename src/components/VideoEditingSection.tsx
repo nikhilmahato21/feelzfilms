@@ -177,9 +177,9 @@ const VideoEditingSection = () => {
   return (
     <section
       id="services"
-      className="relative  w-full  bg-cover bg-center backdrop-blur-md flex flex-col items-center justify-center py-40 overflow-hidden"
+      className="relative  w-full   flex flex-col items-center justify-center py-40 overflow-hidden"
     >
-      {/* <div className="absolute inset-0 pointer-events-none bg-black/50 backdrop-blur-xl -z-10" /> */}
+    
 
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-12">
