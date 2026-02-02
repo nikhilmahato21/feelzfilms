@@ -8,6 +8,6 @@ export const navItems: NavItem[] = [
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
   { label: "Portfolio", href: "#portfolio" },
-  { label: "Courses", href: "https://www.feelzfilms.com/s/store" },
+  { label: "Courses", href: "https://akarshsinha.graphy.com/s/store" },
    { label: "Contact Us", href: "#contact" },
 ];

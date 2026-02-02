@@ -177,7 +177,7 @@ const VideoEditingSection = () => {
   return (
     <section
       id="services"
-      className="relative  w-full   flex flex-col items-center justify-center py-40 overflow-hidden"
+      className="relative  w-full   flex flex-col items-center justify-center py-24 overflow-hidden"
     >
     
 

@@ -57,7 +57,6 @@ export default function Footer() {
             <li>Facebook</li>
             <li>Instagram</li>
             <li>LinkedIn</li>
-            <li>Twitter</li>
             <li>Youtube</li>
           </ul>
         </div>

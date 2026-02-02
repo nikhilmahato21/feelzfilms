@@ -30,7 +30,7 @@ export const GovtExperienceSection = () => {
   return (
     <section
       id="government-work"
-      className="relative w-full py-28 overflow-hidden "
+      className="relative w-full py-20 overflow-hidden "
     >
       {/* Background glow */}
       <div className="absolute inset-0 -z-10">
