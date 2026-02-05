@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import SectionHeader from "../components/SectionHeader";
 import ServiceCard from "../components/ServiceCard";
 import ImageGallery from "../components/ImageGallery";
-import { documentary1, documentary2, foldersBooklets, graphicDesign } from "../constants/imagesLinks";
+import { Aerial1,  documentary1, documentary2, foldersBooklets, Images, graphicDesign } from "../constants/imagesLinks";
 
 const GovernmentServices = () => {
   return (
@@ -82,6 +82,7 @@ const GovernmentServices = () => {
             src={documentary1}
             alt="Documentary production"
             className="w-full h-[320px] object-cover"
+            loading="lazy"
           />
         </div>
 
@@ -124,14 +125,15 @@ const GovernmentServices = () => {
         icon={Video}
         title="Government Initiatives"
         description="We document government programs and initiatives, showcasing their impact on communities and citizens."
-        image={documentary1}
+        image={documentary2}
         delay={0.1}
+
       />
       <ServiceCard
         icon={Video}
         title="Aerial Cinematography"
         description="Stunning drone footage capturing infrastructure projects, rural development, and natural landscapes."
-        image={documentary2}
+        image={Aerial1}
         delay={0.2}
       />
     </div>
@@ -382,11 +384,11 @@ const publicationTypes = [
 ];
 
 const galleryImages = [
-  { src: documentary1, alt: "Documentary filming session", category: "Documentary" },
+  { src: Images[0].link, alt: "Documentary filming session", category: "Documentary" },
   { src: graphicDesign, alt: "Government brochure design", category: "Graphic Design" },
-  { src: documentary2, alt: "Aerial  shot", category: "Documentary" },
+  { src: Images[2].link, alt: "Aerial  shot", category: "Documentary" },
   { src: foldersBooklets, alt: "Publication collection", category: "Publications" },
-  { src: documentary1, alt: "Interview setup", category: "Documentary" },
+  { src: Images[3].link, alt: "Interview setup", category: "Documentary" },
   
 ];
 

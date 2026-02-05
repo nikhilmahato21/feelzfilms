@@ -69,13 +69,14 @@ export const GovtExperienceSection = () => {
             >
               {/* Image */}
               <motion.img
-                src="https://79468c92.delivery.rocketcdn.me/wp-content/uploads/2025/09/Period.-End-of-Sentence-2018-Directed-by-Rayka-Zehtabchi.webp"
+                src="https://res.cloudinary.com/dynbpb9u0/image/upload/v1770273880/WhatsApp_Image_2026-02-05_at_12.13.47_olhq9n.jpg"
                 alt="Government documentary production"
-                className="h-[420px] w-full object-cover"
+                className="h-[420px] w-full object-cover "
                 initial={{ scale: 1.08 }}
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1.2, ease: "easeOut" }}
+                loading="lazy"
               />
 
               {/* Overlay */}
