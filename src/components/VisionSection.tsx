@@ -207,7 +207,7 @@ At Feelz Films, creativity meets strategy — turning every idea into a brand th
   className="flex justify-center mt-6"
 >
   <a
-    href="https://res.cloudinary.com/dynbpb9u0/image/upload/fl_attachment/v1768704419/Company_Profile_Feelz_Films_jbpgss.pdf"
+    href="https://res.cloudinary.com/dynbpb9u0/image/upload/v1773848001/Company_Profile_Feelz_Films_eerqgr.pdf"
     download
     className="group inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-white/90 backdrop-blur-xl hover:bg-white/10 transition shadow-[0_0_40px_rgba(255,255,255,0.06)]"
   >

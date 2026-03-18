@@ -1,5 +1,20 @@
 
 
+const socialLinks = [
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/share/17Du7fDg22/",
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/feelz_films?igsh=ajN4d3AxYTdtdXc0",
+  },
+  {
+    label: "YouTube",
+    href: "https://youtube.com/@akarshsinhaa?si=Frbzg1DypMslljd9",
+  },
+];
+
 export default function Footer() {
   return (
     <footer id="contact" className="relative overflow-hidden">
@@ -54,10 +69,13 @@ export default function Footer() {
         <div>
           <h4 className="text-white font-semibold mb-3">Social</h4>
           <ul className="space-y-2 text-sm">
-            <li>Facebook</li>
-            <li>Instagram</li>
-            <li>LinkedIn</li>
-            <li>Youtube</li>
+            {socialLinks.map((link) => (
+              <li key={link.label}>
+                <a href={link.href} target="_blank" rel="noopener noreferrer">
+                  {link.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
 
