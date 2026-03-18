@@ -4,6 +4,32 @@ import { FaFilm, FaBookOpen, FaTools } from "react-icons/fa";
 
 import { about1, about2} from "../constants/imagesLinks";
 
+const brochureUrl =
+  "https://res.cloudinary.com/dynbpb9u0/image/upload/v1773848001/Company_Profile_Feelz_Films_eerqgr.pdf";
+
+const downloadBrochure = async () => {
+  try {
+    const response = await fetch(brochureUrl);
+
+    if (!response.ok) {
+      throw new Error("Brochure download failed");
+    }
+
+    const brochureBlob = await response.blob();
+    const objectUrl = window.URL.createObjectURL(brochureBlob);
+    const link = document.createElement("a");
+
+    link.href = objectUrl;
+    link.download = "Feelz-Films-Brochure.pdf";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    window.URL.revokeObjectURL(objectUrl);
+  } catch (error) {
+    window.open(brochureUrl, "_blank", "noopener,noreferrer");
+  }
+};
+
 
 const boxes = [
   {
@@ -206,9 +232,11 @@ At Feelz Films, creativity meets strategy — turning every idea into a brand th
   transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
   className="flex justify-center mt-6"
 >
-  <a
-    href="https://res.cloudinary.com/dynbpb9u0/image/upload/v1773848001/Company_Profile_Feelz_Films_eerqgr.pdf"
-    download
+  <button
+    type="button"
+    onClick={() => {
+      void downloadBrochure();
+    }}
     className="group inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-white/90 backdrop-blur-xl hover:bg-white/10 transition shadow-[0_0_40px_rgba(255,255,255,0.06)]"
   >
     <span className="h-2 w-2 rounded-full bg-red-500 shadow-[0_0_18px_rgba(239,68,68,0.6)]" />
@@ -216,7 +244,7 @@ At Feelz Films, creativity meets strategy — turning every idea into a brand th
     <span className="transition-transform duration-300 group-hover:translate-x-1">
       →
     </span>
-  </a>
+  </button>
 </motion.div>
 
       </div>
