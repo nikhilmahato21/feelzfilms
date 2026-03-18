@@ -38,10 +38,7 @@ export const Hero = () => {
     <a href="#services" className={secondaryCtaClassName} aria-label="Go to services section">
         {/* Shine effect */}
         <span className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></span>
-        <span className="relative flex items-center gap-2">
-          <span>Our Services</span>
-          <span className="text-white/70 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:text-white">→</span>
-        </span>
+        <span className="relative">Our Services</span>
     </a>
     
     <a href="#contact" className={primaryCtaClassName} aria-label="Go to contact section">
@@ -55,6 +52,7 @@ export const Hero = () => {
       </span>
       
       <span className="relative z-10">Book a Call</span>
+      <span className="absolute inset-[1px] rounded-full border border-white/15 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       
       {/* Ripple effect on hover */}
       <span className="absolute inset-0 rounded-full border-2 border-white/0 group-hover:border-white/30 scale-100 group-hover:scale-110 opacity-100 group-hover:opacity-0 transition-all duration-500"></span>
@@ -71,10 +69,7 @@ export const Hero = () => {
   >
       {/* Shine effect */}
       <span className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></span>
-      <span className="relative flex items-center gap-2">
-        <span>Our Portfolio</span>
-        <span className="text-white/70 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:text-white">→</span>
-      </span>
+      <span className="relative">Our Portfolio</span>
   </a>
 </div>
 
